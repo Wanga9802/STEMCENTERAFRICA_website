@@ -1,0 +1,199 @@
+/* Navbar */
+.navbar {
+  background: #ffffff !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid rgba(232, 0, 106, 0.18);
+  border-radius: 0 !important;
+  padding: 1rem 0;
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.navbar.scrolled {
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(232, 0, 106, 0.32);
+  box-shadow: 0 4px 24px rgba(232, 0, 106, 0.1);
+}
+
+/* Brand */
+.brand-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  overflow: hidden;
+  border: 1.5px solid #e8006a;
+  flex-shrink: 0;
+}
+
+.brand-logo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a0010;
+  letter-spacing: -0.3px;
+  transition: color 0.25s ease;
+}
+
+.navbar-brand:hover .brand-name {
+  color: #e8006a;
+}
+
+/* Nav links */
+.nav-link {
+  color: rgba(26, 0, 16, 0.65) !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem !important;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #e8006a;
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #e8006a !important;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 60%;
+}
+
+/* Donate button */
+.btn-donate {
+  background: linear-gradient(135deg, #e8006a, #b0004f);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.55rem 1.4rem;
+  border-radius: 8px;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(232, 0, 106, 0.35);
+}
+
+.btn-donate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232, 0, 106, 0.55);
+  filter: brightness(1.08);
+  color: #ffffff;
+}
+
+.btn-donate:active {
+  transform: translateY(0);
+}
+
+/* Toggler — visible on white navbar */
+.navbar-toggler {
+  padding: 0.4rem 0.6rem;
+  border: 1.5px solid #e8006a !important;
+  border-radius: 6px;
+  background: rgba(232, 0, 106, 0.06);
+  transition: background 0.2s ease;
+}
+
+.navbar-toggler:hover {
+  background: rgba(232, 0, 106, 0.12);
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(232, 0, 106, 0.25);
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23E8006A' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  width: 22px;
+  height: 22px;
+}
+
+/* ── Offcanvas Mobile Menu ── */
+.offcanvas-menu {
+  background: #ffffff;
+  border-left: 2px solid rgba(232, 0, 106, 0.20);
+  width: 280px !important;
+}
+
+.offcanvas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(232, 0, 106, 0.12);
+}
+
+.offcanvas-close-btn {
+  background: rgba(232, 0, 106, 0.08);
+  border: 1.5px solid rgba(232, 0, 106, 0.25);
+  border-radius: 6px;
+  color: #e8006a;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  line-height: 1;
+}
+
+.offcanvas-close-btn:hover {
+  background: rgba(232, 0, 106, 0.15);
+}
+
+.offcanvas-body {
+  padding: 1.25rem 1.5rem;
+}
+
+.offcanvas-link {
+  border-radius: 8px !important;
+  padding: 0.65rem 1rem !important;
+  color: rgba(26, 0, 16, 0.70) !important;
+  font-size: 0.95rem !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+.offcanvas-link::after {
+  display: none !important;
+}
+
+.offcanvas-link:hover,
+.offcanvas-link.active {
+  background: rgba(232, 0, 106, 0.08) !important;
+  color: #e8006a !important;
+}
+
+/* Desktop only — hide offcanvas trigger above lg */
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none;
+  }
+  .navbar {
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    display: none !important;
+  }
+}

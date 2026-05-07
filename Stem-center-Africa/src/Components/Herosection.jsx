@@ -2,7 +2,7 @@
 // STEMCenter Africa — Hero Section
 // Stack: React + Bootstrap 5
 
-import '../styles/HeroSection.css';
+import '../Styles/Herosection.css';
 import Logopic from '../assets/stemlogo_3.jpg';
 
 
@@ -10,8 +10,14 @@ import Logopic from '../assets/stemlogo_3.jpg';
 
 const HeroSection = () => {
 
+ 
+
   return (
+    
+    
     <section className="sc-hero" aria-label="Hero section">
+
+      
 
       {/* ── Background layers ── */}
       <div className="sc-hero__bg" aria-hidden="true" />
@@ -30,7 +36,7 @@ const HeroSection = () => {
             {/* Eyebrow badge */}
             <div className="sc-badge sc-anim sc-anim--delay-1">
               <span className="sc-badge__dot" />
-              Transforming Africa Through Science & Innovation
+              Promoting STEM Education in Africa & Beyond
             </div>
 
             {/* Headline */}
