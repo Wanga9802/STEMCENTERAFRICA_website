@@ -25,13 +25,15 @@
 /* ── HERO WRAPPER ── */
 .sc-hero {
   position: relative;
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
   background: var(--sc-dark);
   font-family: var(--sc-ff-body);
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /* ── ANIMATED BACKGROUND ── */
@@ -93,7 +95,8 @@
 .sc-hero__content {
   position: relative;
   z-index: 10;
-  padding: 0px 12px 0 !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
 }
 
 /* ── BADGE ── */
@@ -111,7 +114,7 @@
   text-transform: none;
   padding: 2px 8px;
   border-radius: 999px;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.6rem;
   box-shadow: 0 16px 32px rgba(232, 0, 106, 0.12);
 }
 
@@ -134,15 +137,15 @@
   font-family: var(--sc-ff-display);
   font-size: 48px;
   font-weight: 700;
-  line-height: tight;
+  line-height: 1.1;
   color: var(--sc-headline);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   letter-spacing: -0.04em;
   text-shadow: 0 8px 24px rgba(9, 20, 33, 0.06);
 }
 
 .sc-hero__headline em {
-  font-style: var(--sc-ff-display);
+  font-style: normal;
   font-size: 48px;
   color: var(--sc-headline-highlight);
   position: relative;
@@ -168,7 +171,7 @@
   line-height: 1.75;
   color: var(--sc-text-muted);
   max-width: 520px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* ── CTA BUTTONS ── */
@@ -177,7 +180,7 @@
   align-items: center;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Primary CTA */
@@ -256,19 +259,15 @@
 }
 
 /* ── TRUST INDICATORS ── */
-
-
 .sc-trust__divider {
   width: 1px;
   height: 28px;
   background: rgba(255, 255, 255, 0.15);
 }
 
-
-
 .sc-trust__icon {
-   font-size: 1.8rem;
-   color: var(--sc-headline);
+  font-size: 1.8rem;
+  color: var(--sc-headline);
 }
 
 .sc-trust__text {
@@ -282,36 +281,32 @@
   margin: 0;
   display: inline;
 }
-.toto-toto{
+
+.toto-toto {
   border: none !important;
   border-right: 2px solid var(--sc-amber-dark) !important;
-  
 }
 
 @media (max-width: 767px) {
   .sc-trust__icon {
     font-size: 1.4rem;
   }
-
   .sc-trust__text {
     font-size: 0.78rem;
     line-height: 1.2;
   }
-
   .sc-trust__text.strong {
     font-size: 0.92rem;
     display: inline-block;
   }
-
   .sc-trust__text + .sc-trust__text {
     display: block;
     margin-top: 0.08rem;
   }
-  .setu-setu{
+  .setu-setu {
     padding: 5px 5px !important;
   }
 }
-
 
 /* ── ILLUSTRATION PANEL ── */
 .sc-hero__visual {
@@ -339,6 +334,7 @@
   border: 1px dashed #E8006A;
   animation: ringRotate 20s linear infinite;
 }
+
 .sc-visual__ring--3 {
   width: 280px;
   height: 280px;
@@ -350,8 +346,6 @@
   .sc-visual__ring { width: 320px; height: 320px; }
   .sc-visual__ring--2 { width: 240px; height: 240px; }
 }
-
-
 
 @keyframes ringPulse {
   0%, 100% { transform: scale(1); opacity: 0.8; }
@@ -380,8 +374,6 @@
   position: relative;
   z-index: 5;
 }
-
-
 
 /* Floating stat cards on illustration */
 .sc-float-card {
@@ -491,8 +483,8 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 991px) {
-  .sc-hero__content { padding: 100px 0 80px; }
-  .sc-hero__visual { margin-top: 3rem; }
+  .sc-hero__content { padding: 8px 0 !important; }
+  .sc-hero__visual { margin-top: 1rem; }
   .sc-float-card--a { top: 0; left: 0; }
   .sc-float-card--b { bottom: 0; right: 0; }
   .sc-float-card--c { display: none; }
@@ -509,6 +501,7 @@
 
 @media (max-width: 576px) {
   .sc-hero__headline { font-size: 2.2rem; }
+  .sc-hero__headline em { font-size: 2.2rem; }
   .sc-cta-group { flex-direction: column; align-items: flex-start; }
   .sc-btn-primary, .sc-btn-secondary { width: 100%; justify-content: center; }
   .sc-trust { gap: 12px; }
@@ -519,9 +512,13 @@
   }
 }
 
-
 /* ── MOBILE: Stack columns normally ── */
 @media (max-width: 767px) {
+
+  .sc-hero__content {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
 
   .sc-hero .col-md-5 {
     position: relative;
@@ -535,7 +532,7 @@
   .sc-hero__visual {
     width: 100%;
     opacity: 1;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     justify-content: center;
   }
 
