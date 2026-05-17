@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import '../Styles/Explore.css';
-import iosAppImage from '../assets/iOS app development.jpg';
-import roboticsImage from '../assets/Robotics.jpg';
-import arduinoImage from '../assets/ARDUINO.jpg';
-import computerImage from '../assets/computers.jpg';
-import pythonImage from '../assets/python.jpg';
-import scratchImage from '../assets/scratch.jpg';
+import '../../Styles/Explore.css';
+import iosAppImage from '../../assets/iOS app development.jpg';
+import roboticsImage from '../../assets/Robotics.jpg';
+import arduinoImage from '../../assets/ARDUINO.jpg';
+import computerImage from '../../assets/computers.jpg';
+import pythonImage from '../../assets/python.jpg';
+import scratchImage from '../../assets/scratch.jpg';
 
 const programs = [
   {
@@ -142,6 +142,7 @@ const DEFAULT_CARDS_PER_PAGE = 3;
                   className={`ep-dot${index === page ? ' active' : ''}`}
                   onClick={() => setPage(index)}
                   aria-label={`Go to page ${index + 1}`}
+                  type="button"
                 />
               ))}
             </div>

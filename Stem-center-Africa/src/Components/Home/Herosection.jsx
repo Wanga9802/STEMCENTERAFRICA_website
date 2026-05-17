@@ -2,8 +2,8 @@
 // STEMCenter Africa — Hero Section
 // Stack: React + Bootstrap 5
 
-import '../Styles/Herosection.css';
-import Logopic from '../assets/stemlogo_3.jpg';
+import '../../Styles/Herosection.css';
+import Logopic from '../../assets/stemlogo_3.jpg';
 
 
 // ─── Component ─────────────────────────────────────────

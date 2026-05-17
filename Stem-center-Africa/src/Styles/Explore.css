@@ -220,6 +220,8 @@
     gap: 12px;
     margin: 18px auto 0;
     width: 100%;
+    position: relative;
+    z-index: 10;
   }
  
   .ep-dot {
@@ -229,7 +231,16 @@
     border: none;
     background: rgba(26, 0, 16, 0.2);
     cursor: pointer;
+    padding: 6px;
     transition: transform 0.2s ease, background 0.2s ease;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+ 
+  .ep-dot:hover {
+    background: rgba(255, 45, 120, 0.5);
+    transform: scale(1.1);
   }
  
   .ep-dot.active {
@@ -292,18 +303,29 @@
       display: flex;
       order: 2;
       margin-top: 24px;
+      position: relative;
+      z-index: 10;
     }
  
     .ep-dot {
       width: 14px;
       height: 14px;
+      padding: 8px;
       background: rgba(255, 45, 120, 0.20);
-      border: 1px solid rgba(255, 45, 120, 0.35);
+      border: 1.5px solid rgba(255, 45, 120, 0.35);
       transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+ 
+    .ep-dot:hover {
+      background: rgba(255, 45, 120, 0.35);
+      border-color: rgba(255, 45, 120, 0.6);
+      transform: scale(1.15);
     }
  
     .ep-dot.active {
       background: #ff2d78;
+      border-color: #ff2d78;
       box-shadow: 0 0 0 6px rgba(255, 45, 120, 0.12);
       transform: scale(1.2);
     }

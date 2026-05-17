@@ -1,7 +1,8 @@
 
 
-import HeroSection from "../Components/Herosection";
-import ExplorePrograms from "../Components/Exploreprograms";
+import HeroSection from "../Components/Home/Herosection";
+import ExplorePrograms from "../Components/Home/Exploreprograms";
+import StatsBar from "../Components/Home/Statsbar";
 
 function Home() {
 
@@ -10,6 +11,7 @@ function Home() {
     <>
       <HeroSection />
       <ExplorePrograms />
+      <StatsBar />
     </>
   )
 
