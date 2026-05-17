@@ -4,7 +4,7 @@ import iosAppImage from '../assets/iOS app development.jpg';
 import roboticsImage from '../assets/Robotics.jpg';
 import arduinoImage from '../assets/ARDUINO.jpg';
 import computerImage from '../assets/computers.jpg';
-import pythonImage from '../assets/Python.jpg';
+import pythonImage from '../assets/python.jpg';
 import scratchImage from '../assets/scratch.jpg';
 
 const programs = [
