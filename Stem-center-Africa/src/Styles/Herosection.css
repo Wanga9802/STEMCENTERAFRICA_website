@@ -518,6 +518,8 @@
   .sc-hero__content {
     padding-top: 12px !important;
     padding-bottom: 12px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
 
   .sc-hero .col-md-5 {
