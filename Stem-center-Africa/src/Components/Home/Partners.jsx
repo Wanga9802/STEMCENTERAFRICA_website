@@ -35,7 +35,12 @@ return(
     <>
     
   <section className="partners-section">
+
+         <p className="partners-heading">Our Partners</p>
+       
     <div className="partners-container">
+
+         
       {partners.map((p) => (
         <a
           key={p.id}
