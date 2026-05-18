@@ -71,7 +71,7 @@
   position: absolute;
   width: 14px;
   height: 14px;
-  border-color: #ff2d78;
+  border-color: #ffffff;
   border-style: solid;
 }
 
@@ -173,4 +173,27 @@
   .sb-container {
     grid-template-columns: 1fr;
   }
+}
+
+
+.hl-section {
+  background: #f3f4f6;
+  padding: 72px 24px 68px;
+  text-align: center;
+}
+
+.hl-text {
+  max-width: 680px;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  color: #1a0010;
+  line-height: 1.7;
+}
+
+.hl-text strong {
+  font-weight: 800;
+  color: #1a0010;
 }
