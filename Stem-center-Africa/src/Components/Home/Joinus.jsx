@@ -9,6 +9,19 @@ function Joinus() {
     <section className='join-section'>
       <div className="join-container">
 
+        {/* ── Intro heading block (Moringa-style) ── */}
+        <div className="join-intro">
+          <h2 className="join-intro-title">
+            Join the STEM Center Africa Community of Innovators and Tech Leaders
+          </h2>
+          <p className="join-intro-body">
+            At STEM Center Africa, you're not just signing up for a course — you're joining a
+            dynamic, thriving community of young innovators and professionals. Whether you're a
+            beginner or an experienced tech enthusiast, our community is here to support you to
+            Discover, Grow, and Transform your future in Tech.
+          </p>
+        </div>
+
         {/* Top tagline */}
         <p className="join-tagline">
           Stay up to date with upcoming events, free learning materials, news and updates!

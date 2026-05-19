@@ -57,7 +57,7 @@
     /* Match hero headline styling but keep color black */
     font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
     font-size: clamp(32px, 5vw, 48px);
-    font-weight: 50;
+    font-weight: 600;
     color: #000000;
     line-height: 1.00;
     margin: 0 0 10px;

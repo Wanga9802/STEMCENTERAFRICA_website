@@ -135,7 +135,7 @@ export default function Impact() {
         {/* Header */}
         <div className="eli-header">
           <h2 className="eli-title">Impact <span>Highlights</span></h2>
-          <p className="eli-subtitle">Impact in action: empowering learners, transforming futures.</p>
+          <p className="eli-subtitle">Impact in action; empowering learners, transforming futures.</p>
         </div>
  
         {/* Carousel */}
