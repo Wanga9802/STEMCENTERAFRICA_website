@@ -15,7 +15,7 @@ function Home() {
       <ExplorePrograms />
       <StatsBar />
       <Partners />
-     
+      <Impact />
     </>
   )
 
