@@ -10,7 +10,7 @@ import scratchImage from '../../assets/scratch.jpg';
 const programs = [
   {
     id: 1,
-    title: "Web Development Bootcamp",
+    title: "STEM Expo/Challenge 2025",
     description: "On December 10, 2025, we hosted a STEM Competition and STEM Fair, during which students showcased their innovation projects and competed in a range of STEM activities. 357 students participated, and 114 parents and guests attended.",
     image: iosAppImage,
   },

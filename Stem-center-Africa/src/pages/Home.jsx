@@ -5,6 +5,7 @@ import ExplorePrograms from "../Components/Home/Exploreprograms";
 import StatsBar from "../Components/Home/Statsbar";
 import Partners from "../Components/Home/Partners";
 import Impact from "../Components/Home/impact";
+import Joinus from "../Components/Home/Joinus";
 
 function Home() {
 
@@ -16,6 +17,7 @@ function Home() {
       <StatsBar />
       <Partners />
       <Impact />
+      <Joinus />
     </>
   )
 
