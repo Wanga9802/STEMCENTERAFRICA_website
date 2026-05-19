@@ -284,14 +284,18 @@
     grid-template-columns: 1fr;
   }
 
+  /* Uniform larger sizes for mobile images */
   .join-img-cell {
-    width: 150px;
+    width: 170px;
+    height: 200px;
   }
 
-  .cell-top-left    { height: 120px; }
-  .cell-bottom-left { height: 110px; }
-  .cell-top-right   { height: 110px; }
-  .cell-bottom-right{ height: 118px; }
+  .cell-top-left,
+  .cell-bottom-left,
+  .cell-top-right,
+  .cell-bottom-right {
+    height: 200px;
+  }
 
   .join-img-col:last-child {
     padding-top: 0;
