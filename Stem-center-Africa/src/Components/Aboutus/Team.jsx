@@ -84,7 +84,8 @@ export default function Team() {
               Our success is fueled by a passionate team of industry experts and dedicated professionals
               committed to transforming tech education in Africa. With diverse backgrounds in technology,
               education, and business, our team brings a wealth of experience to ensure our students
-              receive world-class training and career support.
+              receive world-class training and career support. Get to know our leadership, mentors,
+              and innovators shaping the future of tech talent in Africa.
             </p>
           </div>
         </div>
