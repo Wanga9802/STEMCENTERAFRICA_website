@@ -150,4 +150,9 @@
     width: 120px;
     height: 120px;
   }
+
+  .visms-card-label {
+    font-size: 15px;
+    line-height: 1.25;
+  }
 }

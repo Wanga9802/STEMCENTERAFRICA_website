@@ -79,8 +79,8 @@ function Us() {
         <div className="row visms-top-row">
           {info.map((item, index) => (
             <div key={index} className="col-12 col-md-6 visms-info-col">
-              <h3 className="visms-title">{item.title}</h3>
-              <p className="visms-subtitle">{item.subtitle}</p>
+              <h3 className="visms-title mb-3">{item.title}</h3>
+              <p className="visms-subtitle mb-3">{item.subtitle}</p>
               <p className="visms-desc">{item.description}</p>
             </div>
           ))}
