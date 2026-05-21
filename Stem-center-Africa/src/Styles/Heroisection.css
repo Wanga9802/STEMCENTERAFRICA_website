@@ -19,7 +19,7 @@
 .our-story-section {
   position: relative;
   padding: 60px 0 140px;
-  background: #ffffff;
+  background: #EDF1F7;
   overflow: hidden;
 }
 
@@ -31,7 +31,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1400&q=60');
+  background-image: url('../assets/Story.jpg');
   background-size: cover;
   background-position: center top;
   /* fade in from transparent at the top edge of this layer */
@@ -49,11 +49,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
+background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(232, 71, 10, 0.30) 40%,
-    rgba(232, 71, 10, 0.60) 100%
+    rgba(255, 45, 120, 0.55) 35%,
+    rgba(255, 45, 118, 0.63) 70%,
+    rgba(26, 43, 74, 0.65) 100%
   );
   pointer-events: none;
   z-index: 1;
