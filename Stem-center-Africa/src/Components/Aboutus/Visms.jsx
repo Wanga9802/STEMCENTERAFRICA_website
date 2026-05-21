@@ -97,7 +97,7 @@ function Us() {
           {values.map((item, index) => {
             const Icon = icons[index];
             return (
-              <div key={index} className="col-12 col-sm-6 col-lg-3 visms-card-col">
+              <div key={index} className="col-6 col-lg-3 visms-card-col">
                 <div className="visms-card">
                   <div className="visms-card-icon">
                     <Icon />
