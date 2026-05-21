@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap');
+
+/* ── Section ── */
+.awards-section {
+  background: linear-gradient(160deg, #1a0010 0%, #2a0018 50%, #1f0015 100%);
+  position: relative;
+  overflow: visible;
+  font-family: 'DM Sans', sans-serif;
+  max-height: 280px;
+}
+
+.awards-bg-texture {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(234,88,12,0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.awards-section::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: 10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(234,88,12,0.10) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ── Outer layout ── */
+.awards-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 64px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+/* ── Heading column ── */
+.awards-heading-col {
+  flex: 0 0 200px;
+ 
+}
+
+
+
+.awards-title {
+   font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-align: right;
+  margin-bottom: 64px;
+  
+}
+
+
+/* ── Right side wrapper ── */
+.awards-right {
+  flex: 1;
+  min-width: 0; /* essential for overflow to work inside flex */
+}
+
+/* ═══════════════════════════════
+   DESKTOP — horizontal scroll row
+   ═══════════════════════════════ */
+.awards-scroll-track {
+  overflow: hidden;
+  overflow-y: visible;
+  /* hide scrollbar visually but keep scroll */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 8px;
+  /* fade edges to hint scrollability */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 92%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, black 4%, black 92%, transparent 100%);
+}
+
+.awards-scroll-track::-webkit-scrollbar {
+  display: none;
+}
+
+.awards-scroll-inner {
+  display: flex;
+  gap: 16px;
+  width: max-content; /* lets cards overflow naturally */
+  padding: 8px 16px;
+  animation: awardsAutoScroll 45s linear infinite;
+}
+
+.awards-scroll-track:hover .awards-scroll-inner {
+  animation-play-state: paused;
+}
+
+@keyframes awardsAutoScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── Single award card ── */
+.award-item {
+  flex-shrink: 0;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 12px;
+  border: none;
+  background: transparent;
+  animation: fadeUpAward 0.45s ease both;
+}
+
+.award-item:hover {
+  background: transparent;
+}
+
+@keyframes fadeUpAward {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Image wrapper ── */
+.award-image-wrap {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  border-radius: 0;
+  padding: 8px;
+  border: none;
+  overflow: hidden;
+}
+
+/* ── Actual image element ── */
+.award-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ── Label ── */
+.award-label {
+  font-size: 12px;
+  color: #ffffff;
+  line-height: 1.55;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════
+   MOBILE carousel — hidden on desktop
+   ═══════════════════════════════ */
+.awards-mobile-carousel {
+  display: none;
+}
+
+.awards-dots {
+  display: none;
+}
+
+/* ═══════════════════════════════
+   TABLET — stack heading above scroll row
+   ═══════════════════════════════ */
+@media (max-width: 860px) {
+  .awards-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 56px 24px 48px;
+    gap: 32px;
+  }
+
+  .awards-heading-col {
+    flex: none;
+    padding-right: 0;
+  }
+
+  .awards-divider {
+    display: none;
+  }
+
+  .awards-right {
+    width: 100%;
+  }
+
+  /* cards slightly wider on tablet */
+  .award-item {
+    width: 200px;
+  }
+}
+
+/* ═══════════════════════════════
+   MOBILE ≤ 600px — carousel mode
+   ═══════════════════════════════ */
+@media (max-width: 600px) {
+  .awards-section {
+    max-height: none;
+    overflow: hidden;
+  }
+
+  .awards-container {
+    padding: 36px 0 28px;
+    gap: 18px;
+    align-items: center;
+  }
+
+  .awards-heading-col {
+    padding: 0 20px;
+    text-align: center;
+    align-self: center;
+  }
+
+  .awards-title {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    line-height: 1.1;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .awards-title-bar {
+    margin: 0 auto;
+  }
+
+  /* Hide desktop scroll track */
+  .awards-scroll-track {
+    display: none;
+  }
+
+  /* Show mobile carousel */
+  .awards-mobile-carousel {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    touch-action: pan-y;
+  }
+
+  .awards-mobile-inner {
+    display: flex;
+    transition: transform 0.38s cubic-bezier(.22,.68,0,1.1);
+  }
+
+  .awards-mobile-slide {
+    flex: 0 0 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  /* Full-width card in carousel */
+  .awards-mobile-slide .award-item {
+    width: 100%;
+    padding: 10px 12px 0;
+    box-sizing: border-box;
+  }
+
+  /* Larger images on mobile */
+  .awards-mobile-slide .award-image-wrap {
+    width: clamp(78px, 24vw, 96px);
+    height: clamp(78px, 24vw, 96px);
+    margin-bottom: 12px;
+  }
+
+  .awards-mobile-slide .award-label {
+    max-width: 320px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  /* Pagination dots */
+  .awards-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding-bottom: 8px;
+  }
+
+  .awards-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+
+  .awards-dot.active {
+    background: #ea580c;
+    transform: scale(1.4);
+  }
+}
+
+@media (max-width: 380px) {
+  .awards-mobile-slide {
+    padding: 0 16px;
+  }
+}

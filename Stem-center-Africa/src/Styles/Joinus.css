@@ -3,8 +3,8 @@
 /* ─── Section ──────────────────────────────────────────────────────── */
 
 .join-section {
-  background: linear-gradient(180deg, #eef4ff 0%, #f9fbff 100%);
-  padding: 60px 0 80px;
+  background: #faf9f7;
+  padding: 50px 0px;
   font-family: 'Inter', sans-serif;
 }
 
@@ -21,13 +21,13 @@
 }
 
 .join-intro-title {
-  font-family: 'Sora', sans-serif;
-  font-size: 36px;
+   font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
   font-weight: 800;
-  color: #08132f;
+  color: #ea580c;
   line-height: 1.25;
   margin: 0 0 24px;
-  max-width: 780px;
+ 
 }
 
 .join-intro-body {
@@ -44,10 +44,10 @@
 
 .join-tagline {
   text-align: left;
-  font-family: 'Sora', sans-serif;
+   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   font-weight: 700;
-  color: #1a2b4a;
+  color: #1a2744;
   margin-bottom: 48px;
   letter-spacing: 0.01em;
 }
