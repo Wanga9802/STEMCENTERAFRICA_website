@@ -323,6 +323,7 @@
   border-left: 2px solid rgba(232, 0, 106, 0.25);
   width: 280px !important;
   z-index: 1055;
+  padding: 0.75rem;
 }
 
 .mobile-drawer.open {
@@ -350,8 +351,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 1.5rem;
+  padding: 0 0 0.9rem;
   border-bottom: 1px solid rgba(232, 0, 106, 0.18);
+  margin-bottom: 0.9rem;
 }
 
 /* Brand name in offcanvas — white */
@@ -377,13 +379,17 @@
 }
 
 .offcanvas-body {
-  padding: 1.25rem 1.5rem;
+  padding: 0;
+}
+
+.offcanvas-body .navbar-nav {
+  gap: 0.45rem !important;
 }
 
 /* Offcanvas links */
 .offcanvas-link {
   border-radius: 8px !important;
-  padding: 0.65rem 1rem !important;
+  padding: 0.75rem 0.95rem !important;
   color: #ffffff !important;
   font-size: 14px !important;
   font-family: "Gotham Rounded", sans-serif !important;
@@ -397,7 +403,7 @@
 
 .offcanvas-link:hover,
 .offcanvas-link.active {
-  background: rgba(232, 0, 106, 0.15) !important;
+  background: transparent !important;
   color: #ff4da6 !important;
 }
 
@@ -422,7 +428,7 @@
 .offcanvas-sub-link:hover,
 .offcanvas-sub-link.active {
   color: #ff4da6 !important;
-  background: rgba(232, 0, 106, 0.12) !important;
+  background: transparent !important;
 }
 
 /* ── Mobile Accordion ── */
@@ -434,7 +440,7 @@
   background: none;
   border: none;
   border-radius: 8px;
-  padding: 0.65rem 1rem;
+  padding: 0.75rem 0.95rem;
   color: #ffffff;
   font-size: 14px;
   font-family: "Gotham Rounded", sans-serif;
@@ -446,7 +452,7 @@
 
 .offcanvas-accordion-trigger:hover,
 .offcanvas-accordion-trigger.expanded {
-  background: rgba(232, 0, 106, 0.12);
+  background: transparent;
   color: #ff4da6;
 }
 
@@ -487,12 +493,12 @@
   background: rgba(16, 31, 60, 0.58);
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
-  padding: 1rem 0.8rem;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .mobile-courses-card {
-  width: min(340px, calc(100vw - 1.6rem));
+  width: min(340px, calc(100vw - 2rem));
   max-height: calc(100vh - 2rem);
   background: #ffffff;
   border-radius: 12px;
