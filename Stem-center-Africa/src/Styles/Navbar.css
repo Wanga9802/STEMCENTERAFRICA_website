@@ -114,29 +114,54 @@
   transform: translateY(0);
 }
 
+.mega-dropdown-about,
+.mega-dropdown-community {
+  width: auto;
+  min-width: 220px;
+  max-width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.mega-dropdown-about .container,
+.mega-dropdown-community .container {
+  max-width: 100%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.mega-dropdown-about .mega-links-row,
+.mega-dropdown-community .mega-links-row {
+  padding: 0.5rem 0.5rem;
+}
+
 .mega-links-row {
   display: flex;
   flex-direction: column;
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
 }
 
 .mega-link {
   display: block;
-  padding: 0.75rem 1rem;
+  padding: 0.55rem 1rem;
+  margin-bottom: 0.15rem;
   color: #101F3C;
   font-family: "Gotham Rounded", sans-serif !important;
   font-size: 0.92rem;
   font-weight: 500 !important;
   text-decoration: none;
-  border-radius: 6px;
-  transition: background 0.18s ease, color 0.18s ease;
-  width: fit-content;
-  min-width: 160px;
+  border-radius: 0;
+  transition: color 0.18s ease;
+  width: 100%;
+}
+
+.mega-link:last-child {
+  margin-bottom: 0;
 }
 
 .mega-link:hover,
 .mega-link.active {
-  background: rgba(232, 0, 106, 0.07);
+  background: transparent;
   color: #e8006a;
 }
 
@@ -447,19 +472,6 @@
   overflow: hidden;
 }
 
-.mobile-courses-close {
-  display: block;
-  margin: 1rem 1rem 0 auto;
-  background: rgba(16, 31, 60, 0.04);
-  border: none;
-  color: #101f3c;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
 .mobile-courses-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -472,6 +484,7 @@
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid #f2f2f5;
+  padding: 1rem 0.9rem 0.6rem;
 }
 
 .mobile-courses-sidebar-item {
@@ -480,7 +493,8 @@
   background: none;
   border: none;
   border-left: 3px solid transparent;
-  padding: 1rem 1rem 1rem 1.25rem;
+  padding: 0.9rem 1rem 0.9rem 1.25rem;
+  margin: 0;
   font-size: 0.95rem;
   color: #101f3c;
   font-weight: 600;
@@ -496,6 +510,7 @@
   background: rgba(232, 0, 106, 0.08);
   color: #e8006a;
   border-left-color: #e8006a;
+  border-top-left-radius: 10px;
 }
 
 .mobile-courses-details {
@@ -518,10 +533,10 @@
 .mobile-courses-offerings-header {
   margin-bottom: 1rem;
   color: #e8006a;
-  font-size: 0.82rem;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .mobile-courses-offering-list {
@@ -670,10 +685,9 @@
 }
 
 .courses-offerings-heading {
-  font-size: 0.78rem;
+  font-size: 18px;
   font-weight: 700;
   color: #e8006a;
-  text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 1rem;
   font-family: "Gotham Rounded", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

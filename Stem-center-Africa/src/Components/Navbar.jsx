@@ -68,9 +68,13 @@ function Navbar() {
   const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
 
   const searchInputRef  = useRef(null);
+  const aboutLinkRef    = useRef(null);
+  const communityLinkRef = useRef(null);
+  const searchWrapperRef = useRef(null);
   const navRef          = useRef(null);
   const hoverTimeoutRef = useRef(null);
   const navigate        = useNavigate();
+  const [dropdownBounds, setDropdownBounds] = useState({ aboutLeft: 0, aboutRight: 0, communityLeft: 0 });
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -88,6 +92,25 @@ function Navbar() {
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const updateDropdownBounds = () => {
+      if (!navRef.current || !aboutLinkRef.current || !communityLinkRef.current || !searchWrapperRef.current) return;
+      const navRect = navRef.current.getBoundingClientRect();
+      const aboutRect = aboutLinkRef.current.getBoundingClientRect();
+      const communityRect = communityLinkRef.current.getBoundingClientRect();
+      const searchRect = searchWrapperRef.current.getBoundingClientRect();
+      setDropdownBounds({
+        aboutLeft: aboutRect.left - navRect.left,
+        aboutRight: Math.max(16, navRect.right - searchRect.left + 12),
+        communityLeft: communityRect.left - navRect.left,
+      });
+    };
+
+    updateDropdownBounds();
+    window.addEventListener('resize', updateDropdownBounds);
+    return () => window.removeEventListener('resize', updateDropdownBounds);
   }, []);
 
   const openDropdown = (name) => {
@@ -211,6 +234,7 @@ function Navbar() {
                 onMouseLeave={closeDropdownDelayed}
               >
                 <NavLink
+                  ref={aboutLinkRef}
                   className={({ isActive }) => `nav-link dropdown-trigger${isActive ? ' active' : ''}${activeDropdown === 'about' ? ' open' : ''}`}
                   to="/about"
                 >
@@ -230,6 +254,7 @@ function Navbar() {
                 onMouseLeave={closeDropdownDelayed}
               >
                 <NavLink
+                  ref={communityLinkRef}
                   className={({ isActive }) => `nav-link dropdown-trigger${isActive ? ' active' : ''}${activeDropdown === 'community' ? ' open' : ''}`}
                   to="/community"
                 >
@@ -239,7 +264,7 @@ function Navbar() {
 
               {/* Search */}
               <li className="nav-item ms-lg-1">
-                <div className={`search-wrapper${searchOpen ? ' open' : ''}`}>
+                <div ref={searchWrapperRef} className={`search-wrapper${searchOpen ? ' open' : ''}`}>
                   <form onSubmit={handleSearchSubmit} className="search-form">
                     <input
                       ref={searchInputRef}
@@ -318,9 +343,10 @@ function Navbar() {
 
         {/* ── About mega panel ── */}
         <div
-          className={`mega-dropdown-fullwidth${activeDropdown === 'about' ? ' visible' : ''}`}
+          className={`mega-dropdown-fullwidth mega-dropdown-about${activeDropdown === 'about' ? ' visible' : ''}`}
           onMouseEnter={() => openDropdown('about')}
           onMouseLeave={closeDropdownDelayed}
+          style={{ left: dropdownBounds.aboutLeft, right: dropdownBounds.aboutRight }}
         >
           <div className="container">
             <div className="mega-links-row">
@@ -332,9 +358,10 @@ function Navbar() {
 
         {/* ── Community mega panel ── */}
         <div
-          className={`mega-dropdown-fullwidth${activeDropdown === 'community' ? ' visible' : ''}`}
+          className={`mega-dropdown-fullwidth mega-dropdown-community${activeDropdown === 'community' ? ' visible' : ''}`}
           onMouseEnter={() => openDropdown('community')}
           onMouseLeave={closeDropdownDelayed}
+          style={{ left: dropdownBounds.communityLeft, right: 0 }}
         >
           <div className="container">
             <div className="mega-links-row">
@@ -425,17 +452,16 @@ function Navbar() {
       </div>
 
       {mobileCoursesOpen && (
-        <div className="mobile-courses-overlay" role="dialog" aria-modal="true">
-          <div className="mobile-courses-card">
-            <button
-              type="button"
-              className="mobile-courses-close"
-              onClick={() => setMobileCoursesOpen(false)}
-              aria-label="Close courses panel"
-            >
-              ✕
-            </button>
-
+        <div
+          className="mobile-courses-overlay"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setMobileCoursesOpen(false)}
+        >
+          <div
+            className="mobile-courses-card"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="mobile-courses-grid">
               <div className="mobile-courses-sidebar">
                 {COURSES.map((course) => (
