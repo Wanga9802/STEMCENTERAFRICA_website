@@ -1,6 +1,6 @@
 import '../Styles/Navbar.css'
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import Logopicc from '../assets/stem_africa.jpg';
 
 // ── Courses mega-menu data ──────────────────────────────────────────
@@ -74,7 +74,9 @@ function Navbar() {
   const navRef          = useRef(null);
   const hoverTimeoutRef = useRef(null);
   const navigate        = useNavigate();
+  const location        = useLocation();
   const [dropdownBounds, setDropdownBounds] = useState({ aboutLeft: 0, aboutRight: 0, communityLeft: 0 });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -144,6 +146,32 @@ function Navbar() {
     setMobileExpanded(prev => prev === section ? null : section);
   };
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen((prev) => {
+      const next = !prev;
+      if (!next) setMobileCoursesOpen(false);
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setMobileExpanded(null);
+    setMobileCoursesOpen(false);
+  }, [location]);
+
+  const closeMobileMenu = () => {
+    setMobileExpanded(null);
+    setMobileCoursesOpen(false);
+    setMobileMenuOpen(false);
+  };
+
+  const openMobileCourses = () => {
+    setActiveDropdown(null);
+    setMobileExpanded(null);
+    setMobileCoursesOpen(true);
+  };
+
   const currentCourse = COURSES.find(c => c.id === activeCourse) || COURSES[0];
 
   return (
@@ -193,8 +221,7 @@ function Navbar() {
             <button
               className="navbar-toggler-clean"
               type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#mobileMenu"
+              onClick={toggleMobileMenu}
               aria-controls="mobileMenu"
               aria-label="Toggle navigation"
             >
@@ -374,7 +401,7 @@ function Navbar() {
       </nav>
 
       {/* ── Offcanvas Mobile Menu ── */}
-      <div className="offcanvas offcanvas-end offcanvas-menu" tabIndex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+      <div className={`mobile-drawer${mobileMenuOpen ? ' open' : ''}`} role="dialog" aria-modal="true" aria-labelledby="mobileMenuLabel">
         <div className="offcanvas-header">
           <div className="d-flex align-items-center gap-2">
             <div className="brand-logo-wrapper">
@@ -382,7 +409,7 @@ function Navbar() {
             </div>
             <span className="brand-name offcanvas-brand-name">STEM Africa</span>
           </div>
-          <button type="button" className="offcanvas-close-btn" data-bs-dismiss="offcanvas" aria-label="Close">✕</button>
+          <button type="button" className="offcanvas-close-btn" onClick={closeMobileMenu} aria-label="Close">✕</button>
         </div>
 
         <div className="offcanvas-body">
@@ -391,18 +418,15 @@ function Navbar() {
 
             {/* Home */}
             <li className="nav-item">
-              <NavLink end className={({ isActive }) => `nav-link offcanvas-link${isActive ? ' active' : ''}`} to="/" data-bs-dismiss="offcanvas">Home</NavLink>
+              <NavLink end className={({ isActive }) => `nav-link offcanvas-link${isActive ? ' active' : ''}`} to="/" onClick={closeMobileMenu}>Home</NavLink>
             </li>
 
-            {/* Courses button opens overlay */}
+            {/* Courses */}
             <li className="nav-item">
               <button
                 type="button"
-                className={`offcanvas-link offcanvas-link-button${mobileCoursesOpen ? ' active' : ''}`}
-                onClick={() => {
-                  setMobileCoursesOpen(true);
-                  setMobileExpanded(null);
-                }}
+                className={`nav-link offcanvas-link offcanvas-link-button${mobileCoursesOpen ? ' active' : ''}`}
+                onClick={openMobileCourses}
               >
                 Courses
               </button>
@@ -420,14 +444,14 @@ function Navbar() {
                 </svg>
               </button>
               <div className={`offcanvas-accordion-body${mobileExpanded === 'about' ? ' open' : ''}`}>
-                <NavLink className={({ isActive }) => `nav-link offcanvas-link offcanvas-sub-link${isActive ? ' active' : ''}`} to="/about" data-bs-dismiss="offcanvas">About Us</NavLink>
-                <NavLink className={({ isActive }) => `nav-link offcanvas-link offcanvas-sub-link${isActive ? ' active' : ''}`} to="/faqs" data-bs-dismiss="offcanvas">FAQs</NavLink>
+                <NavLink className={({ isActive }) => `nav-link offcanvas-link offcanvas-sub-link${isActive ? ' active' : ''}`} to="/about" onClick={closeMobileMenu}>About Us</NavLink>
+                <NavLink className={({ isActive }) => `nav-link offcanvas-link offcanvas-sub-link${isActive ? ' active' : ''}`} to="/faqs" onClick={closeMobileMenu}>FAQs</NavLink>
               </div>
             </li>
 
             {/* Corporate */}
             <li className="nav-item">
-              <NavLink className={({ isActive }) => `nav-link offcanvas-link${isActive ? ' active' : ''}`} to="/corporate" data-bs-dismiss="offcanvas">Corporate</NavLink>
+              <NavLink className={({ isActive }) => `nav-link offcanvas-link${isActive ? ' active' : ''}`} to="/corporate" onClick={closeMobileMenu}>Corporate</NavLink>
             </li>
 
             {/* Community accordion */}
@@ -442,29 +466,28 @@ function Navbar() {
                 </svg>
               </button>
               <div className={`offcanvas-accordion-body${mobileExpanded === 'community' ? ' open' : ''}`}>
-                <NavLink className={({ isActive }) => `nav-link offcanvas-link offcanvas-sub-link${isActive ? ' active' : ''}`} to="/blog" data-bs-dismiss="offcanvas">Blog</NavLink>
-                <NavLink className={({ isActive }) => `nav-link offcanvas-link offcanvas-sub-link${isActive ? ' active' : ''}`} to="/events" data-bs-dismiss="offcanvas">Events</NavLink>
+                <NavLink className={({ isActive }) => `nav-link offcanvas-link offcanvas-sub-link${isActive ? ' active' : ''}`} to="/blog" onClick={closeMobileMenu}>Blog</NavLink>
+                <NavLink className={({ isActive }) => `nav-link offcanvas-link offcanvas-sub-link${isActive ? ' active' : ''}`} to="/events" onClick={closeMobileMenu}>Events</NavLink>
               </div>
             </li>
 
           </ul>
         </div>
       </div>
+      <div className={`mobile-menu-backdrop${mobileMenuOpen ? ' show' : ''}`} onClick={closeMobileMenu} />
 
       {mobileCoursesOpen && (
         <div
           className="mobile-courses-overlay"
           role="dialog"
           aria-modal="true"
+          aria-label="Courses menu"
           onClick={() => setMobileCoursesOpen(false)}
         >
-          <div
-            className="mobile-courses-card"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="mobile-courses-card" onClick={(e) => e.stopPropagation()}>
             <div className="mobile-courses-grid">
               <div className="mobile-courses-sidebar">
-                {COURSES.map((course) => (
+                {COURSES.map(course => (
                   <button
                     key={course.id}
                     type="button"
@@ -482,16 +505,16 @@ function Navbar() {
 
                 <div className="mobile-courses-offerings-header">Course Offerings</div>
                 <div className="mobile-courses-offering-list">
-                  {currentCourse.offerings.map((o) => (
-                    <div key={o.name} className="mobile-courses-offering-item">
+                  {currentCourse.offerings.map((offering, index) => (
+                    <div key={index} className="mobile-courses-offering-item">
                       <Link
-                        to={o.to}
+                        to={offering.to}
                         className="mobile-courses-offering-link"
-                        onClick={() => setMobileCoursesOpen(false)}
+                        onClick={closeMobileMenu}
                       >
-                        {o.name}
+                        {offering.name}
                       </Link>
-                      <span className="mobile-courses-offering-meta">{o.meta}</span>
+                      <span className="mobile-courses-offering-meta">{offering.meta}</span>
                     </div>
                   ))}
                 </div>

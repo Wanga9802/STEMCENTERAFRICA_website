@@ -1,8 +1,8 @@
 /* ── Navbar ── */
 .navbar {
   background: #ffffff !important;
-  backdrop-filter: none;
   -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   border-bottom: 1px solid rgba(232, 0, 106, 0.18);
   border-radius: 0 !important;
   padding: 1rem 0;
@@ -312,10 +312,38 @@
 }
 
 /* ── Offcanvas Mobile Menu ── */
-.offcanvas-menu {
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateX(100%);
+  transition: transform 0.28s ease;
   background: linear-gradient(160deg, #1a0010 0%, #2a0018 50%, #1f0015 100%) !important;
   border-left: 2px solid rgba(232, 0, 106, 0.25);
   width: 280px !important;
+  z-index: 1055;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 1050;
+}
+
+.mobile-menu-backdrop.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .offcanvas-header {
@@ -456,27 +484,27 @@
   position: fixed;
   inset: 0;
   z-index: 1065;
-  background: rgba(15, 9, 21, 0.5);
+  background: rgba(16, 31, 60, 0.58);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1rem 0.8rem;
 }
 
 .mobile-courses-card {
-  width: 100%;
-  max-width: 520px;
+  width: min(340px, calc(100vw - 1.6rem));
+  max-height: calc(100vh - 2rem);
   background: #ffffff;
-  border-radius: 28px;
+  border-radius: 12px;
   box-shadow: 0 32px 80px rgba(16, 31, 60, 0.18);
-  overflow: hidden;
+  overflow: auto;
 }
 
 .mobile-courses-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
-  background: #f8f4f8;
+  background: #ffffff;
 }
 
 .mobile-courses-sidebar {
@@ -484,7 +512,7 @@
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid #f2f2f5;
-  padding: 1rem 0.9rem 0.6rem;
+  padding: 1rem 2.4rem 0.6rem;
 }
 
 .mobile-courses-sidebar-item {
@@ -514,7 +542,7 @@
 }
 
 .mobile-courses-details {
-  padding: 1.25rem 1.3rem 1.5rem;
+  padding: 1.25rem 2.4rem 2rem;
 }
 
 .mobile-courses-details h4 {
@@ -577,6 +605,9 @@
 
 /* ── Responsive ── */
 @media (min-width: 992px) {
+  .mobile-courses-overlay {
+    display: none !important;
+  }
   .navbar-toggler-clean {
     display: none !important;
   }
