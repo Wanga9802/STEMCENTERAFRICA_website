@@ -419,6 +419,147 @@
   opacity: 1;
 }
 
+.offcanvas-link-button {
+  text-align: left;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.mobile-courses-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1065;
+  background: rgba(15, 9, 21, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.mobile-courses-card {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 32px 80px rgba(16, 31, 60, 0.18);
+  overflow: hidden;
+}
+
+.mobile-courses-close {
+  display: block;
+  margin: 1rem 1rem 0 auto;
+  background: rgba(16, 31, 60, 0.04);
+  border: none;
+  color: #101f3c;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.mobile-courses-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  background: #f8f4f8;
+}
+
+.mobile-courses-sidebar {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #f2f2f5;
+}
+
+.mobile-courses-sidebar-item {
+  text-align: left;
+  width: 100%;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  padding: 1rem 1rem 1rem 1.25rem;
+  font-size: 0.95rem;
+  color: #101f3c;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.mobile-courses-sidebar-item:not(:last-child) {
+  border-bottom: 1px solid #f2f2f5;
+}
+
+.mobile-courses-sidebar-item.active {
+  background: rgba(232, 0, 106, 0.08);
+  color: #e8006a;
+  border-left-color: #e8006a;
+}
+
+.mobile-courses-details {
+  padding: 1.25rem 1.3rem 1.5rem;
+}
+
+.mobile-courses-details h4 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #101f3c;
+}
+
+.mobile-courses-details p {
+  margin: 0 0 1.25rem;
+  color: rgba(16, 31, 60, 0.7);
+  line-height: 1.75;
+}
+
+.mobile-courses-offerings-header {
+  margin-bottom: 1rem;
+  color: #e8006a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mobile-courses-offering-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.mobile-courses-offering-item {
+  padding-top: 0.15rem;
+  border-top: 1px solid #f2f2f5;
+}
+
+.mobile-courses-offering-item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.mobile-courses-offering-link {
+  display: inline-block;
+  color: #101f3c;
+  font-weight: 700;
+  font-size: 0.96rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-bottom: 0.35rem;
+}
+
+.mobile-courses-offering-link:hover {
+  color: #e8006a;
+}
+
+.mobile-courses-offering-meta {
+  display: block;
+  color: rgba(16, 31, 60, 0.6);
+  font-size: 0.82rem;
+}
+
 /* ── Responsive ── */
 @media (min-width: 992px) {
   .navbar-toggler-clean {

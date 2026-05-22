@@ -64,7 +64,8 @@ function Navbar() {
   const [activeCourse, setActiveCourse]       = useState(COURSES[0].id);
 
   // Mobile accordion state
-  const [mobileExpanded, setMobileExpanded]   = useState(null); // 'courses' | 'about' | 'community' | null
+  const [mobileExpanded, setMobileExpanded]   = useState(null); // 'about' | 'community' | null
+  const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
 
   const searchInputRef  = useRef(null);
   const navRef          = useRef(null);
@@ -366,29 +367,18 @@ function Navbar() {
               <NavLink end className={({ isActive }) => `nav-link offcanvas-link${isActive ? ' active' : ''}`} to="/" data-bs-dismiss="offcanvas">Home</NavLink>
             </li>
 
-            {/* Courses accordion */}
+            {/* Courses button opens overlay */}
             <li className="nav-item">
               <button
-                className={`offcanvas-accordion-trigger${mobileExpanded === 'courses' ? ' expanded' : ''}`}
-                onClick={() => toggleMobileSection('courses')}
+                type="button"
+                className={`offcanvas-link offcanvas-link-button${mobileCoursesOpen ? ' active' : ''}`}
+                onClick={() => {
+                  setMobileCoursesOpen(true);
+                  setMobileExpanded(null);
+                }}
               >
                 Courses
-                <svg width="14" height="14" viewBox="0 0 12 12" fill="none" className={`accordion-chevron${mobileExpanded === 'courses' ? ' rotated' : ''}`}>
-                  <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
               </button>
-              <div className={`offcanvas-accordion-body${mobileExpanded === 'courses' ? ' open' : ''}`}>
-                {COURSES.map(c => (
-                  <NavLink
-                    key={c.id}
-                    className={({ isActive }) => `nav-link offcanvas-link offcanvas-sub-link${isActive ? ' active' : ''}`}
-                    to={`/courses/${c.id}`}
-                    data-bs-dismiss="offcanvas"
-                  >
-                    {c.label}
-                  </NavLink>
-                ))}
-              </div>
             </li>
 
             {/* About accordion */}
@@ -433,6 +423,57 @@ function Navbar() {
           </ul>
         </div>
       </div>
+
+      {mobileCoursesOpen && (
+        <div className="mobile-courses-overlay" role="dialog" aria-modal="true">
+          <div className="mobile-courses-card">
+            <button
+              type="button"
+              className="mobile-courses-close"
+              onClick={() => setMobileCoursesOpen(false)}
+              aria-label="Close courses panel"
+            >
+              ✕
+            </button>
+
+            <div className="mobile-courses-grid">
+              <div className="mobile-courses-sidebar">
+                {COURSES.map((course) => (
+                  <button
+                    key={course.id}
+                    type="button"
+                    className={`mobile-courses-sidebar-item${activeCourse === course.id ? ' active' : ''}`}
+                    onClick={() => setActiveCourse(course.id)}
+                  >
+                    {course.label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="mobile-courses-details">
+                <h4>{currentCourse.title}</h4>
+                <p>{currentCourse.description}</p>
+
+                <div className="mobile-courses-offerings-header">Course Offerings</div>
+                <div className="mobile-courses-offering-list">
+                  {currentCourse.offerings.map((o) => (
+                    <div key={o.name} className="mobile-courses-offering-item">
+                      <Link
+                        to={o.to}
+                        className="mobile-courses-offering-link"
+                        onClick={() => setMobileCoursesOpen(false)}
+                      >
+                        {o.name}
+                      </Link>
+                      <span className="mobile-courses-offering-meta">{o.meta}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
