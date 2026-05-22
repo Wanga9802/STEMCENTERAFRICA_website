@@ -1,4 +1,4 @@
-/* Navbar */
+/* ── Navbar ── */
 .navbar {
   background: #ffffff !important;
   backdrop-filter: none;
@@ -7,6 +7,8 @@
   border-radius: 0 !important;
   padding: 1rem 0;
   transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  overflow: visible;
 }
 
 .navbar.scrolled {
@@ -15,7 +17,7 @@
   box-shadow: 0 4px 24px rgba(232, 0, 106, 0.1);
 }
 
-/* Brand */
+/* ── Brand ── */
 .brand-logo-wrapper {
   display: flex;
   align-items: center;
@@ -45,10 +47,11 @@
   color: #e8006a;
 }
 
-/* Nav links */
+/* ── Nav links ── */
 .nav-link {
-  color: rgba(26, 0, 16, 0.65) !important;
-  font-weight: 500;
+  color: #101F3C !important;
+  font-family: "Gotham Rounded", sans-serif;
+  font-weight: 500 !important;
   font-size: 0.9rem;
   padding: 0.5rem 1rem !important;
   position: relative;
@@ -69,69 +72,224 @@
 }
 
 .nav-link:hover,
-.nav-link.active {
+.nav-link.active,
+.nav-link.open {
   color: #e8006a !important;
 }
 
 .nav-link:hover::after,
-.nav-link.active::after {
+.nav-link.active::after,
+.nav-link.open::after {
   width: 60%;
 }
 
-/* Donate button */
-.btn-donate {
-  background: linear-gradient(135deg, #e8006a, #b0004f);
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 0.55rem 1.4rem;
-  border-radius: 8px;
-  border: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-  display: inline-flex;
+/* ── Dropdown trigger (no chevron needed) ── */
+.dropdown-trigger {
+  display: inline-flex !important;
   align-items: center;
-  box-shadow: 0 4px 16px rgba(232, 0, 106, 0.35);
 }
 
-.btn-donate:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(232, 0, 106, 0.55);
-  filter: brightness(1.08);
-  color: #ffffff;
+/* ── Full-width Mega Dropdown ── */
+.mega-dropdown-fullwidth {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: #ffffff;
+  border-top: 2px solid rgba(232, 0, 106, 0.12);
+  border-bottom: 1px solid rgba(232, 0, 106, 0.12);
+  box-shadow: 0 8px 32px rgba(232, 0, 106, 0.10), 0 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
 }
 
-.btn-donate:active {
+.mega-dropdown-fullwidth.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
   transform: translateY(0);
 }
 
-/* Toggler — visible on white navbar */
-.navbar-toggler {
-  padding: 0.4rem 0.6rem;
-  border: 1.5px solid #e8006a !important;
+.mega-links-row {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 0;
+}
+
+.mega-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #101F3C;
+  font-family: "Gotham Rounded", sans-serif !important;
+  font-size: 0.92rem;
+  font-weight: 500 !important;
+  text-decoration: none;
   border-radius: 6px;
+  transition: background 0.18s ease, color 0.18s ease;
+  width: fit-content;
+  min-width: 160px;
+}
+
+.mega-link:hover,
+.mega-link.active {
+  background: rgba(232, 0, 106, 0.07);
+  color: #e8006a;
+}
+
+/* ── Desktop Search ── */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  color: #101F3C;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: color 0.2s ease, background 0.2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.search-btn:hover {
+  color: #e8006a;
   background: rgba(232, 0, 106, 0.06);
-  transition: background 0.2s ease;
 }
 
-.navbar-toggler:hover {
-  background: rgba(232, 0, 106, 0.12);
+.search-form {
+  overflow: hidden;
+  max-width: 0;
+  opacity: 0;
+  transition: max-width 0.3s ease, opacity 0.3s ease;
 }
 
-.navbar-toggler:focus {
-  box-shadow: 0 0 0 3px rgba(232, 0, 106, 0.25);
+.search-wrapper.open .search-form {
+  max-width: 200px;
+  opacity: 1;
+}
+
+.search-input {
+  border: none;
+  border-bottom: 1.5px solid rgba(232, 0, 106, 0.4);
   outline: none;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.88rem;
+  color: #1a0010;
+  background: transparent;
+  width: 180px;
+  transition: border-color 0.2s ease;
 }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23E8006A' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  width: 22px;
-  height: 22px;
+.search-input:focus {
+  border-bottom-color: #e8006a;
+}
+
+.search-input::placeholder {
+  color: rgba(26, 0, 16, 0.35);
+}
+
+/* ── Mobile controls (search + hamburger) ── */
+.mobile-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Clean hamburger — no background, no border */
+.navbar-toggler-clean {
+  background: none;
+  border: none;
+  padding: 0.4rem 0.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #101F3C;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-toggler-clean:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-toggler-clean:hover {
+  color: #e8006a;
+}
+
+/* Mobile header search (beside hamburger) */
+.mobile-header-search {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-search-icon-btn {
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  cursor: pointer;
+  color: #101F3C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+}
+
+.mobile-search-icon-btn:hover {
+  color: #e8006a;
+}
+
+.mobile-header-search-form {
+  overflow: hidden;
+  max-width: 0;
+  opacity: 0;
+  transition: max-width 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-header-search.open .mobile-header-search-form {
+  max-width: 150px;
+  opacity: 1;
+}
+
+.mobile-header-search-input {
+  border: none;
+  border-bottom: 1.5px solid rgba(232, 0, 106, 0.4);
+  outline: none;
+  padding: 0.3rem 0.4rem;
+  font-size: 0.85rem;
+  color: #1a0010;
+  background: transparent;
+  width: 130px;
+  transition: border-color 0.2s ease;
+}
+
+.mobile-header-search-input:focus {
+  border-bottom-color: #e8006a;
+}
+
+.mobile-header-search-input::placeholder {
+  color: rgba(26, 0, 16, 0.4);
 }
 
 /* ── Offcanvas Mobile Menu ── */
 .offcanvas-menu {
-  background: #ffffff;
-  border-left: 2px solid rgba(232, 0, 106, 0.20);
+  background: linear-gradient(160deg, #1a0010 0%, #2a0018 50%, #1f0015 100%) !important;
+  border-left: 2px solid rgba(232, 0, 106, 0.25);
   width: 280px !important;
 }
 
@@ -140,12 +298,17 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid rgba(232, 0, 106, 0.12);
+  border-bottom: 1px solid rgba(232, 0, 106, 0.18);
+}
+
+/* Brand name in offcanvas — white */
+.offcanvas-brand-name {
+  color: #ffffff !important;
 }
 
 .offcanvas-close-btn {
-  background: rgba(232, 0, 106, 0.08);
-  border: 1.5px solid rgba(232, 0, 106, 0.25);
+  background: rgba(232, 0, 106, 0.12);
+  border: 1.5px solid rgba(232, 0, 106, 0.30);
   border-radius: 6px;
   color: #e8006a;
   font-size: 0.85rem;
@@ -157,18 +320,21 @@
 }
 
 .offcanvas-close-btn:hover {
-  background: rgba(232, 0, 106, 0.15);
+  background: rgba(232, 0, 106, 0.22);
 }
 
 .offcanvas-body {
   padding: 1.25rem 1.5rem;
 }
 
+/* Offcanvas links */
 .offcanvas-link {
   border-radius: 8px !important;
   padding: 0.65rem 1rem !important;
-  color: rgba(26, 0, 16, 0.70) !important;
-  font-size: 0.95rem !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-family: "Gotham Rounded", sans-serif !important;
+  font-weight: 500 !important;
   transition: background 0.2s ease, color 0.2s ease !important;
 }
 
@@ -178,14 +344,88 @@
 
 .offcanvas-link:hover,
 .offcanvas-link.active {
-  background: rgba(232, 0, 106, 0.08) !important;
-  color: #e8006a !important;
+  background: rgba(232, 0, 106, 0.15) !important;
+  color: #ff4da6 !important;
 }
 
-/* Desktop only — hide offcanvas trigger above lg */
+/* Mobile sub-link indent */
+.offcanvas-sub-link {
+  padding-left: 1.75rem !important;
+  font-size: 13px !important;
+  color: rgba(255, 255, 255, 0.70) !important;
+}
+
+.offcanvas-sub-link::after {
+  display: none !important;
+}
+
+.offcanvas-sub-link::before {
+  content: "↳";
+  margin-right: 0.4rem;
+  color: rgba(232, 0, 106, 0.6);
+  font-size: 0.8rem;
+}
+
+.offcanvas-sub-link:hover,
+.offcanvas-sub-link.active {
+  color: #ff4da6 !important;
+  background: rgba(232, 0, 106, 0.12) !important;
+}
+
+/* ── Mobile Accordion ── */
+.offcanvas-accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: "Gotham Rounded", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-align: left;
+}
+
+.offcanvas-accordion-trigger:hover,
+.offcanvas-accordion-trigger.expanded {
+  background: rgba(232, 0, 106, 0.12);
+  color: #ff4da6;
+}
+
+.accordion-chevron {
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.accordion-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+.offcanvas-accordion-body {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.25s ease;
+}
+
+.offcanvas-accordion-body.open {
+  max-height: 400px;
+  opacity: 1;
+}
+
+/* ── Responsive ── */
 @media (min-width: 992px) {
-  .navbar-toggler {
-    display: none;
+  .navbar-toggler-clean {
+    display: none !important;
+  }
+  .mobile-controls {
+    display: none !important;
   }
   .navbar {
     padding: 1rem 0;
@@ -196,4 +436,131 @@
   .navbar-collapse {
     display: none !important;
   }
+  .mega-dropdown-fullwidth {
+    display: none !important;
+  }
+}
+
+/* ══════════════════════════════════════════
+   Courses 3-column mega dropdown
+══════════════════════════════════════════ */
+
+.courses-mega {
+  border-top: 2px solid rgba(232, 0, 106, 0.12) !important;
+  border-bottom: 1px solid rgba(232, 0, 106, 0.12) !important;
+  box-shadow: 0 8px 32px rgba(232, 0, 106, 0.10), 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 0 0 8px 8px;
+  padding: 0;
+}
+
+.courses-mega-grid {
+  display: grid;
+  grid-template-columns: 220px 1px 1fr 1px 1fr;
+  min-height: 260px;
+}
+
+.courses-col-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 0;
+}
+
+.course-nav-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  padding: 0.7rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #101F3C;
+  cursor: pointer;
+  transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  font-family: "Gotham Rounded", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.course-nav-item:hover {
+  color: #e8006a;
+  background: rgba(232, 0, 106, 0.04);
+  border-top-left-radius: 10px;
+}
+
+.course-nav-item.active {
+  color: #e8006a;
+  border-left-color: #e8006a;
+  background: rgba(232, 0, 106, 0.06);
+  font-weight: 500;
+  border-top-left-radius: 10px;
+}
+
+.courses-col-divider {
+  background: rgba(232, 0, 106, 0.12);
+  width: 1px;
+  margin: 1.25rem 0;
+}
+
+.courses-col-info {
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.courses-info-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #101F3C;
+  margin-bottom: 0.65rem;
+  font-family: "Gotham Rounded", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.courses-info-desc {
+  font-size: 17px;
+  color: rgba(16, 31, 60, 0.65);
+  line-height: 1.6;
+  margin: 0;
+  font-family: "Gotham Rounded", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.courses-col-offerings {
+  padding: 1.75rem 2rem;
+}
+
+.courses-offerings-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #e8006a;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+  font-family: "Gotham Rounded", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.courses-offering-item {
+  margin-bottom: 1rem;
+}
+
+.courses-offering-name {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #101F3C;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.18s ease;
+  font-family: "Gotham Rounded", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.courses-offering-name:hover {
+  color: #e8006a;
+}
+
+.courses-offering-meta {
+  display: block;
+  font-size: 0.8rem;
+  color: #101F3C;
+  margin-top: 0.2rem;
+  font-family: "Gotham Rounded", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
