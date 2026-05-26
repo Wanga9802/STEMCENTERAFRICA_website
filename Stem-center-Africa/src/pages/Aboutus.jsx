@@ -5,6 +5,7 @@ import Journey from "../Components/Aboutus/Journey";
 import Team from "../Components/Aboutus/Team";
 import Tour from "../Components/Aboutus/Tour";
 import Us from "../Components/Aboutus/Visms";
+import WhyChooseUs from "../Components/Aboutus/Why_chose";
 function About(){
 
 
@@ -16,6 +17,7 @@ function About(){
        <Difference />
        <Us />
        <Tour />
+       <WhyChooseUs />
        <Journey />
        <Team />
        

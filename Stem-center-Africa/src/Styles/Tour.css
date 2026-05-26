@@ -67,10 +67,10 @@
   cursor: default;
   box-shadow: none;
   transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease;
-  background: #111;
+  background: transparent; /* allow thumbnail to show without a black band */
   width: 100%;
-  max-width: 540px;
-  flex: 1 1 380px;
+  max-width: 650px; /* increased to allow larger card */
+  flex: 1 1 500px; /* larger flex-basis for wider cards */
 }
 
 .alumnii-video-card:hover {
@@ -86,6 +86,8 @@
   background-position: center;
   position: relative;
   transition: transform 0.5s ease;
+  border-radius: 16px 16px 0 0; /* match parent card rounding */
+  overflow: hidden;
 }
 
 .alumnii-video-card:hover .alumnii-card-thumbnail {
@@ -98,6 +100,7 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(15,15,15,0.82) 0%, rgba(15,15,15,0.10) 55%, transparent 100%);
+  border-radius: inherit; /* keep overlay rounded */
 }
 
 /* ── Play button overlay (centered on thumbnail) ── */
@@ -126,21 +129,27 @@
   height: 22px;
 }
 
-.alumnii-play-button:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-  box-shadow: 0 6px 16px rgba(234,88,12,0.5);
+.alumnii-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 84px; /* larger play button for bigger thumbnail */
+  height: 84px;
+  background: #ea580c;
+  border: none;
+  border-radius: 50%;
+  z-index: 2;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(234,88,12,0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.alumnii-play-button svg { width: 36px; height: 36px; }
 
-.alumnii-play-button:active {
-  transform: translate(-50%, -50%) scale(0.95);
-}
-
-/* ── Card text content — hidden, overlay only ── */
-.alumnii-card-content {
-  display: none;
-}
-
-/* ── Mobile carousel wrapper ── */
+/* Hide the carousel on desktop by default (show only at mobile breakpoints) */
 .alumnii-carousel-track {
   display: none;
 }
@@ -219,5 +228,13 @@
 
   .alumnii-title {
     font-size: 20px !important;
+  }
+}
+
+/* Increase thumbnail height on desktop without changing card width */
+@media (min-width: 768px) {
+  .alumnii-card-thumbnail {
+    height: 420px; /* taller thumbnail while width remains constrained by card */
+    aspect-ratio: auto; /* let explicit height take precedence */
   }
 }

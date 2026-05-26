@@ -33,11 +33,7 @@ function VideoCard({ person, onPlay }) {
           </svg>
         </button>
       </div>
-      <div className="alumnii-card-content">
-        <h3>{person.name}</h3>
-        <p className="alumnii-card-role">{person.role}</p>
-        <p className="alumnii-card-quote">"{person.quote}"</p>
-      </div>
+ 
     </div>
   );
 }
