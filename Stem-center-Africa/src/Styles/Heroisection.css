@@ -1,14 +1,21 @@
-/* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap');
 
-/* ── Design tokens ── */
+/* ── CSS VARIABLES (shared with HeroSection) ── */
 :root {
-  --brand-orange: #E8470A;
-  --brand-orange-light: #FF6B35;
-  --brand-dark: #0D1B2A;
-  --brand-text:  #1a2b4a;
-  --brand-muted: #4A5568;
-  --accent-corner: #ff2d78;
+  --sc-green:           #E8006A;
+  --sc-green-dark:      #b0004f;
+  --sc-green-glow:      rgba(232, 0, 106, 0.25);
+  --sc-amber-border:    #ff4d9e;
+  --sc-headline:        #ffffff;
+  --sc-headline-highlight: #ff4d9e;
+  --sc-dark:            #1a0010;
+  --sc-dark-2:          #2a0018;
+  --sc-mid:             #3d0024;
+  --sc-text-inv:        rgba(255, 255, 255, 0.92);
+  --sc-text-muted:      rgba(255, 255, 255, 0.65);
+  --sc-ff-display:      'Poppins', 'Segoe UI', system-ui, sans-serif;
+  --sc-ff-body:         'Inter', 'Segoe UI', system-ui, sans-serif;
+  --accent-corner:      #ff2d78;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -18,56 +25,84 @@
 ══════════════════════════════════════════ */
 .our-story-section {
   position: relative;
-  padding: 60px 0 140px;
-  background: #EDF1F7;
+  padding: 70px 0 140px;
+  background: var(--sc-dark);
   overflow: hidden;
+  font-family: var(--sc-ff-body);
 }
 
-/* ── Crowd background image — bottom portion only ── */
+/* ── Animated gradient background (same as hero) ── */
 .our-story-section::before {
   content: '';
   position: absolute;
-  top: 50%;          /* starts halfway down */
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('../assets/Story.jpg');
-  background-size: cover;
-  background-position: center top;
-  /* fade in from transparent at the top edge of this layer */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
-  pointer-events: none;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 65% 40%, rgba(232,0,106,0.20) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(232,0,106,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 90% 10%, rgba(213,0,109,0.07) 0%, transparent 60%),
+    linear-gradient(160deg, #1a0010 0%, #2a0018 50%, #1f0015 100%);
   z-index: 0;
+  pointer-events: none;
 }
 
-/* ── Orange tint wash over the crowd photo ── */
+/* ── Grid overlay texture ── */
 .our-story-section::after {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(255, 45, 118, 0.297) 35%,
-    rgba(255, 45, 118, 0.63) 70%,
-    rgba(26, 43, 74, 0.65) 100%
-  );
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── Floating orbs (same keyframes as hero) ── */
+.story-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: storyOrbFloat 8s ease-in-out infinite;
   pointer-events: none;
   z-index: 1;
 }
 
-/* ── Container above pseudo-elements ── */
+.story-orb--1 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(232,0,106,0.16) 0%, transparent 70%);
+  top: -100px; left: -60px;
+  animation-delay: 0s;
+}
+
+.story-orb--2 {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(213,0,109,0.12) 0%, transparent 70%);
+  bottom: 0; right: -40px;
+  animation-delay: -3.5s;
+}
+
+.story-orb--3 {
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(232,0,106,0.10) 0%, transparent 70%);
+  top: 55%; left: 45%;
+  animation-delay: -5s;
+}
+
+@keyframes storyOrbFloat {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  33%       { transform: translateY(-22px) scale(1.04); }
+  66%       { transform: translateY(12px) scale(0.97); }
+}
+
+/* ── Container above pseudo-elements and orbs ── */
 .our-story-section .container {
   position: relative;
   z-index: 2;
 }
 
 /* ══════════════════════════════════════════
-   WAVE — hidden. section bottom is now clipped directly
+   WAVE — white wave at bottom
 ══════════════════════════════════════════ */
 .story-wave {
   position: absolute;
@@ -96,28 +131,43 @@ background: linear-gradient(
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-right: 40px;
+  padding-right: 48px;
 }
 
+/* Entry animation */
+.story-text-col {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: storyRevealUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+}
+
+@keyframes storyRevealUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Eyebrow / title */
 .story-eyebrow {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 28px;
+  font-family: var(--sc-ff-display);
+  font-size: 2rem;
   font-weight: 700;
-  color: #ff2d78;
-  margin-bottom: 13px;
-  letter-spacing: -0.01em;
- 
+  color: var(--sc-headline-highlight);
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
 }
 
+
+
+/* Body text */
 .story-body p {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    color: #1a2b4a;
-    line-height: 1.65;
-    margin: 0;
-    flex: 1;
-    letter-spacing: 0.01em;
+  font-family: var(--sc-ff-body);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.8;
+  margin: 0 0 16px;
+  letter-spacing: 0.01em;
 }
 
 .story-body p:last-child { margin-bottom: 0; }
@@ -131,6 +181,17 @@ background: linear-gradient(
   justify-content: center;
 }
 
+/* Entry animation — slides in from right */
+.story-image-col {
+  opacity: 0;
+  transform: translateX(40px);
+  animation: storyRevealRight 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+}
+
+@keyframes storyRevealRight {
+  to { opacity: 1; transform: translateX(0); }
+}
+
 .story-image-wrapper {
   position: relative;
   width: 100%;
@@ -138,19 +199,31 @@ background: linear-gradient(
   height: 340px;
 }
 
-/* Orange L-shaped corner accent top-right */
+/* Pink L-shaped corner accent — top-right */
 .story-image-wrapper::before {
   content: '';
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 90%;
-  height: 90%;
-  border-top: 7px solid var(--accent-corner);
-  border-right: 7px solid var(--accent-corner);
-  border-radius: 0px;
+  top: -8px;
+  right: -8px;
+  width: 88%;
+  height: 88%;
+  border-top: 3px solid var(--accent-corner);
+  border-right: 3px solid var(--accent-corner);
+  border-radius: 0;
   pointer-events: none;
   z-index: 3;
+  box-shadow: 2px -2px 18px rgba(255, 45, 120, 0.35);
+}
+
+/* Pink glow ring behind the image */
+.story-image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 8px -8px -8px 8px;
+  background: rgba(232, 0, 106, 0.12);
+  border-radius: 14px;
+  z-index: 0;
+  filter: blur(8px);
 }
 
 .story-img {
@@ -161,7 +234,8 @@ background: linear-gradient(
   object-fit: cover;
   border-radius: 12px;
   display: block;
-  filter: brightness(0.92) saturate(1.05);
+  border: 1px solid rgba(232, 0, 106, 0.20);
+  filter: brightness(0.88) saturate(1.08);
 }
 
 /* ══════════════════════════════════════════
@@ -186,6 +260,9 @@ background: linear-gradient(
   .story-wave svg {
     height: 78px;
   }
+
+  .story-orb--1 { width: 260px; height: 260px; }
+  .story-orb--2 { width: 200px; height: 200px; }
 }
 
 @media (max-width: 575px) {
@@ -193,10 +270,16 @@ background: linear-gradient(
     padding: 50px 0 130px;
   }
 
-  .story-eyebrow { margin-bottom: 20px; }
-  .story-body p { font-size: 15px; }
+  .story-eyebrow {
+    font-size: 1.6rem;
+    margin-bottom: 22px;
+  }
+
+  .story-body p { font-size: 0.95rem; }
 
   .story-wave svg {
     height: 58px;
   }
+
+  .story-orb--3 { display: none; }
 }

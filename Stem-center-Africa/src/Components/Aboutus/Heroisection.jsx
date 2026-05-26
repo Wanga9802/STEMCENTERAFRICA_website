@@ -4,11 +4,10 @@ import React from 'react';
 const defaultStory = {
   title: 'Our Story',
   paragraphs: [
-    "STEM Center Africa, founded in 2017, is a nonprofit based at Edenview Academy in Oyugis, Kenya. We offer mathematics, science, technology, and engineering programs that aim to inspire the next generation of mathematicians, scientists, and engineers and excite learners of all ages about the power and beauty of STEM education. We promote creativity, critical thinking, and problem-solving skills that we believe will help spur the economic growth of not only African countries but the world at large.  ",
-
+    "STEM Center Africa, founded in 2017, is a nonprofit based at Edenview Academy in Oyugis, Kenya. We offer mathematics, science, technology, and engineering programs that aim to inspire the next generation of mathematicians, scientists, and engineers and excite learners of all ages about the power and beauty of STEM education. We promote creativity, critical thinking, and problem-solving skills that we believe will help spur the economic growth of not only African countries but the world at large.",
   ],
   imageSrc: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
-  imageAlt: 'Students working on computers at Moringa School',
+  imageAlt: 'Students working on computers at STEM Center Africa',
 };
 
 export default function Heroisection({ title, paragraphs, imageSrc, imageAlt }) {
@@ -16,7 +15,12 @@ export default function Heroisection({ title, paragraphs, imageSrc, imageAlt }) 
   const storyParagraphs = paragraphs || defaultStory.paragraphs;
 
   return (
-    <section className="our-story-section">
+    <section className="our-story-section" aria-label="Our story section">
+
+      {/* ── Animated floating orbs (matches HeroSection) ── */}
+      <div className="story-orb story-orb--1" aria-hidden="true" />
+      <div className="story-orb story-orb--2" aria-hidden="true" />
+      <div className="story-orb story-orb--3" aria-hidden="true" />
 
       {/* ── Main content ── */}
       <div className="container">
@@ -46,6 +50,7 @@ export default function Heroisection({ title, paragraphs, imageSrc, imageAlt }) 
         </div>
       </div>
 
+      {/* ── Wave transition to white ── */}
       <div className="story-wave" aria-hidden="true">
         <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
           <path d="M0,46 C280,86 520,86 760,54 C1000,24 1220,22 1440,44 L1440,120 L0,120 Z" />
