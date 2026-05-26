@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import '../Styles/Faqsection.css';
 import faqBannerImg from '../assets/faqs.jpg';
 
-const defaultFaqs = [
+// ── Split FAQs into pages (adjust page size as needed) ──
+const PAGE_SIZE = 3;
+
+const allFaqs = [
   {
     question: 'Q: What is STEM Center Africa?',
     answer:
@@ -35,15 +38,44 @@ const defaultFaqs = [
   },
 ];
 
+// Chunk helper — groups flat FAQ array into pages
+function chunkArray(arr, size) {
+  const pages = [];
+  for (let i = 0; i < arr.length; i += size) {
+    pages.push(arr.slice(i, i + size));
+  }
+  return pages;
+}
+
 export default function FaqSection({ faqs, bannerImage, bannerTitle }) {
-  const items      = faqs        || defaultFaqs;
+  const source     = faqs        || allFaqs;
+  const pages      = chunkArray(source, PAGE_SIZE);   // [[...], [...], ...]
   const imgSrc     = bannerImage || faqBannerImg;
   const heroTitle  = bannerTitle || 'FAQs';
 
-  const [openIndex, setOpenIndex] = useState(null);
+  const [page, setPage]           = useState(0);   // current page index
+  const [openIndex, setOpenIndex] = useState(null); // open accordion item
+
+  const currentItems = pages[page] ?? [];
+  const isFirst      = page === 0;
+  const isLast       = page === pages.length - 1;
 
   const toggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const goOlder = () => {
+    if (!isLast) {
+      setPage((p) => p + 1);
+      setOpenIndex(null);
+    }
+  };
+
+  const goNewer = () => {
+    if (!isFirst) {
+      setPage((p) => p - 1);
+      setOpenIndex(null);
+    }
   };
 
   return (
@@ -64,27 +96,50 @@ export default function FaqSection({ faqs, bannerImage, bannerTitle }) {
       {/* ── FAQ Accordion ── */}
       <section className="faq-section" aria-label="Frequently asked questions">
         <div className="container faq-container mt-4 mb-5 py-5">
-        <div className="faq-list">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className={`faq-item${openIndex === index ? ' open' : ''}`}
-            >
-              <button
-                className="faq-question"
-                onClick={() => toggle(index)}
-                aria-expanded={openIndex === index}
+          <div className="faq-list">
+            {currentItems.map((item, index) => (
+              <div
+                key={index}
+                className={`faq-item${openIndex === index ? ' open' : ''}`}
               >
-                <span className="faq-question-text">{item.question}</span>
-                <span className="faq-toggle" aria-hidden="true">+</span>
-              </button>
+                <button
+                  className="faq-question"
+                  onClick={() => toggle(index)}
+                  aria-expanded={openIndex === index}
+                >
+                  <span className="faq-question-text">{item.question}</span>
+                  <span className="faq-toggle" aria-hidden="true">+</span>
+                </button>
 
-              <div className="faq-answer" aria-hidden={openIndex !== index}>
-                <div className="faq-answer-inner">{item.answer}</div>
+                <div className="faq-answer" aria-hidden={openIndex !== index}>
+                  <div className="faq-answer-inner">{item.answer}</div>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+
+          {/* ── Pagination ── */}
+          <div className="faq-pagination">
+            {/* Left: Newer posts (hidden on page 0) */}
+            <button
+              className="faq-page-link"
+              onClick={goNewer}
+              style={{ visibility: isFirst ? 'hidden' : 'visible' }}
+              aria-label="Go to newer posts"
+            >
+              ← Newer posts
+            </button>
+
+            {/* Right: Older posts (hidden on last page) */}
+            <button
+              className="faq-page-link"
+              onClick={goOlder}
+              style={{ visibility: isLast ? 'hidden' : 'visible' }}
+              aria-label="Go to older posts"
+            >
+              Older posts →
+            </button>
+          </div>
         </div>
       </section>
     </>
