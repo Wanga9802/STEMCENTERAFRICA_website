@@ -85,13 +85,12 @@
 
 
 .faq-question-text {
-  font-family: Gotham Rounded;
+  font-family: 'Montserrat', sans-serif;
   font-size: 19.2px;
-  font-weight: 900 !important;
+  font-weight: 500;
   color: #101F3C;
-  line-height: 1.5;
-  flex: 1;
-  margin-left: 8px; 
+  letter-spacing: -0.01em;
+  text-align: center;
 }
 
 /* Plus/minus toggle button */
@@ -151,12 +150,24 @@
     padding: 0 24px;
   }
 
+  
   .faq-hero__title {
     font-size: 1.7rem;
   }
 
   .faq-question-text {
-    font-size: 17px;
+    font-size: 19.2px;
+  }
+
+  /* Ensure question text starts at same horizontal position on mobile */
+  .faq-question {
+    padding: 12px 20px; /* left/right padding so text aligns consistently */
+  }
+
+  .faq-question-text {
+    margin-left: 0; /* reset any manual indent */
+    text-align: left;
+    display: block;
   }
 }
 
