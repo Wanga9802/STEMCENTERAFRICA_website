@@ -63,6 +63,7 @@ export default function FaqSection({ faqs, bannerImage, bannerTitle }) {
 
       {/* ── FAQ Accordion ── */}
       <section className="faq-section" aria-label="Frequently asked questions">
+        <div className="container faq-container mt-4 mb-5 py-5">
         <div className="faq-list">
           {items.map((item, index) => (
             <div
@@ -83,6 +84,7 @@ export default function FaqSection({ faqs, bannerImage, bannerTitle }) {
               </div>
             </div>
           ))}
+        </div>
         </div>
       </section>
     </>
