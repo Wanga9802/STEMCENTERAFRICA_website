@@ -234,7 +234,7 @@
 /* Increase thumbnail height on desktop without changing card width */
 @media (min-width: 768px) {
   .alumnii-card-thumbnail {
-    height: 420px; /* taller thumbnail while width remains constrained by card */
+    height: 400px; /* taller thumbnail while width remains constrained by card */
     aspect-ratio: auto; /* let explicit height take precedence */
   }
 }
