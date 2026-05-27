@@ -1,9 +1,15 @@
+import BlogHero from "../Components/Blog/Herosection";
+import BlogCategoryCards from "../Components/Blog/Blogcategory";
+
 function Blog() {
   return (
-    <div className="page-placeholder">
-      <h1>Blog</h1>
-      <p>The blog page is currently a placeholder and will be filled in soon.</p>
-    </div>
+  
+    <>
+    
+    <BlogHero />
+    <BlogCategoryCards />
+    
+    </>
   );
 }
 

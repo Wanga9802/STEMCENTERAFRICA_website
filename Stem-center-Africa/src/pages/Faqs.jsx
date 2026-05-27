@@ -3,7 +3,7 @@ import '../Styles/Faqsection.css';
 import faqBannerImg from '../assets/faqs.jpg';
 
 // ── Split FAQs into pages (adjust page size as needed) ──
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 7;
 
 const allFaqs = [
   {
@@ -35,6 +35,46 @@ const allFaqs = [
     question: 'Q: How do I enroll my child?',
     answer:
       'You can reach out to us directly through our Contact page or visit Edenview Academy in Oyugis, Kenya. Our team will guide you through the enrollment process.',
+  },
+  {
+    question: 'Q: What age groups do you support?',
+    answer:
+      'We support learners from primary school through high school and young adults, tailoring our programs to each age group’s learning needs.',
+  },
+  {
+    question: 'Q: Are your programs free or paid?',
+    answer:
+      'Some of our community outreach programs are free, while specialized courses and camps may have a fee to cover materials and facilitation. Please contact us for current pricing.',
+  },
+  {
+    question: 'Q: Can parents get involved?',
+    answer:
+      'Absolutely. Parents can volunteer, attend community events, and help support student learning alongside our team.',
+  },
+  {
+    question: 'Q: What topics do you teach?',
+    answer:
+      'We teach mathematics, science, coding, robotics, engineering, and technology skills with hands-on activities and real-world problem solving.',
+  },
+  {
+    question: 'Q: Do you offer scholarships?',
+    answer:
+      'We offer need-based scholarship opportunities for eligible learners. Reach out to our team for application details and availability.',
+  },
+  {
+    question: 'Q: How long is each program?',
+    answer:
+      'Program lengths vary from short-term workshops to multi-week courses. We share details for each program on the course page.',
+  },
+  {
+    question: 'Q: Can schools partner with you?',
+    answer:
+      'Yes, we partner with local schools and community groups to bring STEM learning directly into classrooms and extracurricular clubs.',
+  },
+  {
+    question: 'Q: Where are your learning centers located?',
+    answer:
+      'Our main programs run from Edenview Academy in Oyugis, Kenya, and we also deliver remote and outreach programs to nearby communities.',
   },
 ];
 

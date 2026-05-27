@@ -1,0 +1,150 @@
+
+
+/* ── Tokens ───────────────────────────────────────────────────────────── */
+:root {
+  --bh-bg:          #1a0a14;
+  --bh-bg-mid:      #2a0a1e;
+  --bh-pink:        #e91e8c;
+  --bh-pink-alt:    #FF4D9E;       /* category left-border colour */
+  --bh-pink-glow:   rgba(233, 30, 140, 0.22);
+  --bh-white:       #ffffff;
+  --bh-muted:       rgba(255, 255, 255, 0.55);
+  --bh-border:      rgba(255, 255, 255, 0.07);
+  --bh-cat-bg:      #ffffff;
+  --bh-cat-text:    #111827;
+  --bh-cat-border:  #FF4D9E;
+  --bh-cat-hover-bg:#fff0f7;
+  --bh-radius:      10px;
+}
+
+/* ── Hero wrapper ─────────────────────────────────────────────────────── */
+.bh-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--bh-bg);
+  padding: 5rem 1.5rem 4.5rem;
+  font-family: 'Syne', 'Segoe UI', sans-serif;
+}
+
+/* dot-grid overlay — matches the site's existing hero texture */
+.bh-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.065) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* radial pink glow centred-left */
+.bh-hero__glow {
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  width: 680px;
+  height: 380px;
+  background: radial-gradient(ellipse, var(--bh-pink-glow) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* secondary soft glow top-right */
+.bh-hero__glow-right {
+  position: absolute;
+  top: -60px;
+  right: -40px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(233,30,140,0.10) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* all direct children sit above the bg effects */
+.bh-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+
+/* ── Category grid ────────────────────────────────────────────────────── */
+.bh-cat-grid {
+  /* 3 cols on lg, 1 on md and below — Bootstrap row/col handles this,
+     but we also provide a CSS Grid fallback for standalone use */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 991px) {
+  .bh-cat-grid { grid-template-columns: 1fr; gap: 16px; }
+  .container.px-5.bh-hero-container {
+    padding: 0 0.75rem !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .bh-hero { padding: 2rem 0 2rem; }
+  .container.px-5.bh-hero-container {
+    padding: 0 0.75rem !important;
+  }
+  .bh-cat-grid { grid-template-columns: 1fr; gap: 16px; }
+  .bh-cat-btn { width: 100%; padding: 18px 16px; font-size: 15px; }
+}
+
+/* ── Category button ──────────────────────────────────────────────────── */
+.bh-cat-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  background: var(--bh-cat-bg);
+  border: none;
+  border-left: 4px solid var(--bh-cat-border);
+  border-radius: var(--bh-radius);
+  padding: 16px 18px;
+
+  font-family: 'Syne', 'Segoe UI', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bh-cat-text);
+  cursor: pointer;
+  text-align: left;
+  line-height: 1.3;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  
+}
+
+.bh-cat-btn:hover {
+ color: #FF4D9E;
+}
+
+.bh-cat-btn--active {
+  background: var(--bh-pink-alt);
+  border-left-color: #b5006a;
+  color: var(--bh-white);
+  box-shadow: 0 4px 18px rgba(255,77,158,0.45);
+}
+
+.bh-cat-btn--active:hover {
+  background: #ff6ab4;
+}
+
+/* arrow icon inside the button */
+.bh-cat-btn__arrow {
+  flex-shrink: 0;
+  font-size: 16px;
+  color: var(--bh-pink-alt);
+  transition: transform 0.18s;
+}
+
+
