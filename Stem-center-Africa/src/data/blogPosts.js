@@ -1,0 +1,130 @@
+export const BLOG_POSTS = [
+  {
+    slug: 'robotics-ai',
+    category: 'Robotics & AI',
+    title: 'How African Youth Are Redefining the Future of Robotics',
+    subtitle: 'From Nairobi to Lagos, students are building robots that solve local problems in agriculture, health, and education.',
+    author: 'Dr. Nyambura Kamau',
+    date: 'May 22, 2026',
+  
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80',
+    content: [
+      'Robotics is no longer a classroom exercise. In communities across Africa, young makers are building low-cost robots that can help with irrigation, medical delivery, and environmental monitoring.',
+      'These projects focus on local problems, starting with affordable hardware and open-source software so that any student can replicate the design and improve it.',
+      'The story shows how a strong foundation in engineering and computing can turn a simple prototype into a solution that supports real families and small businesses.',
+      'By combining sensors, AI, and user-centered design, the next generation of engineers is creating machines that are useful, resilient, and culturally relevant.',
+    ],
+  },
+  {
+    slug: 'web-development',
+    category: 'Web Development',
+    title: 'CSS Grid vs Flexbox: When to Use Which (With Real Examples)',
+    subtitle: 'A practical guide to choosing the right layout system for responsive pages, dashboards, and landing screens.',
+    author: 'Amina Diallo',
+    date: 'May 18, 2026',
+  
+    image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=80',
+    content: [
+      'Responsive web design depends on choosing the right layout tool for the right problem. CSS Grid excels when you need two-dimensional layouts and precise control over rows and columns.',
+      'Flexbox is ideal for one-dimensional alignment, such as navigation bars, card rows, and centered content areas.',
+      'In this article, we compare both approaches with real examples so you can decide when to use Grid, when to use Flexbox, and when to combine them effectively.',
+      'The examples also include mobile-first adjustments so your pages stay clean and readable on all screen sizes.',
+    ],
+  },
+  {
+    slug: 'scratch',
+    category: 'Scratch',
+    title: 'How 12-Year-Old Amara Built Her First Video Game in a Weekend',
+    subtitle: 'A story of curiosity and creativity that shows how block coding can unlock young inventors.',
+    author: 'James Kariuki',
+    date: 'May 15, 2026',
+   
+    image: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=1200&q=80',
+    content: [
+      'Scratch makes it easy for young learners to turn ideas into playable games. Amara started with a simple goal: build a maze game with a character that collects stars.',
+      'Within a weekend, she experimented with motion blocks, sound effects, and event controls, learning key programming concepts without writing a single line of text-based code.',
+      'This story highlights the power of constructive play and how early exposure to code can build confidence and logical thinking.',
+      'By sharing her game with classmates, Amara also learned about feedback and iteration, which are essential skills for any creative project.',
+    ],
+  },
+  {
+    slug: 'tinkering',
+    category: 'Tinkering',
+    title: 'We Gave 20 Kids Cardboard, Wires & No Instructions — Here’s What Happened',
+    subtitle: 'Open-ended making teaches problem solving, resilience, and creative experimentation.',
+    author: 'Grace Mwangi',
+    date: 'May 10, 2026',
+   
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&q=80',
+    content: [
+      'Tinkering is about exploring without a predetermined outcome. We gave students loose parts and watched them invent surprising solutions.',
+      'Some groups built simple vehicles, others created interactive displays, and one team even used cardboard to prototype a low-cost school supply organizer.',
+      'The lesson is that failure is part of the process: students learned faster when they were allowed to test, break, and rebuild their ideas.',
+      'Making encourages curiosity, collaboration, and the kind of creative confidence that transforms learners into problem solvers.',
+    ],
+  },
+  {
+    slug: 'arduino-iot',
+    category: 'Arduino & IoT',
+    title: 'Build a Smart Plant Watering System for Under $15',
+    subtitle: 'A practical hardware project that combines sensors, code, and a real-world need.',
+    author: 'Dr. Fatima Bah',
+    date: 'May 5, 2026',
+  
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80',
+    content: [
+      'This project shows how inexpensive electronics can solve everyday problems. Students built a moisture-sensing circuit that waters plants only when the soil is dry.',
+      'They learned how to read sensor values, control a pump, and write simple code that cycles on and off at the right time.',
+      'The result is a reliable system that conserves water and supports even beginner learners in building functional IoT devices.',
+      'The same pattern can be adapted to many other smart home and environmental monitoring solutions.',
+    ],
+  },
+  {
+    slug: 'basic-computer',
+    category: 'Basic Computer',
+    title: 'The One File Organisation System You’ll Actually Stick To',
+    subtitle: 'A simple method for managing school work, code files, and study notes in one clean structure.',
+    author: 'Amina Diallo',
+    date: 'April 30, 2026',
+  
+    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1200&q=80',
+    content: [
+      'Organising files is one of the first digital skills every student needs. This article walks through a system that uses folders, naming conventions, and version notes to stay tidy.',
+      'It works equally well for programming assignments, research notes, and personal projects.',
+      'The goal is to make it easy to find work later, avoid duplicate files, and build habits that reduce stress during exam season.',
+      'Plus, the same structure is ready to share with teachers, mentors, or teammates when collaboration is required.',
+    ],
+  },
+  {
+    slug: 'community-stories',
+    category: 'Community Stories',
+    title: 'From Street Vendor to Software Developer: James’s Two-Year Journey',
+    subtitle: 'A powerful story of ambition, grit, and the role education plays in changing a path.',
+    author: 'Joy Osei',
+    date: 'April 25, 2026',
+  
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&q=80',
+    content: [
+      'James started with little access to a computer, but a local STEM program gave him the mentorship and tools he needed to learn coding.',
+      'Over two years, he built his skills through hands-on challenges, group work, and consistent practice.',
+      'Today he works as a junior software developer and mentors other young people in his neighbourhood.',
+      'His story shows how targeted support and an early introduction to tech can create lasting opportunity.',
+    ],
+  },
+  {
+    slug: 'career-readiness',
+    category: 'Career Readiness',
+    title: 'The Portfolio That Landed 3 Offers in One Month — Breakdown Inside',
+    subtitle: 'What hiring managers really look for in a student portfolio, and how to build one quickly.',
+    author: 'Nina Achieng',
+    date: 'April 20, 2026',
+   
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80',
+    content: [
+      'A strong portfolio should balance projects with clear problem statements, working demos, and evidence of learning.',
+      'We walk through the exact sections recruiters want to see, including your best projects, skills list, and a short summary of your role in each build.',
+      'The fastest way to improve is to add polished reflections, links, and visuals that show both technical skill and communication strength.',
+      'This article also covers how to update your portfolio after internships, bootcamps, or hackathons so it always stays relevant.',
+    ],
+  },
+];

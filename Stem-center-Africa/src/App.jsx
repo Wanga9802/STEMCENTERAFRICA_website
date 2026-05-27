@@ -5,6 +5,7 @@ import Courses from './pages/Courses'
 import Corporate from './pages/Corporate'
 import Community from './pages/Community'
 import Blog from './pages/Blog'
+import BlogPostPage from './Components/Blog/BlogPostPage'
 import Events from './pages/Events'
 import Faqs from './pages/Faqs'
 import Navbar from './Components/Navbar'
@@ -22,6 +23,7 @@ function App() {
         <Route path="/corporate" element={<Corporate />} />
         <Route path="/community" element={<Community />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/events" element={<Events />} />
         <Route path="/faqs" element={<Faqs />} />
         <Route path="*" element={<Home />} />

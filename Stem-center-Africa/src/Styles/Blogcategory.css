@@ -140,6 +140,7 @@
   cursor: pointer;
   font-family: 'Syne', sans-serif;
   letter-spacing: 0.04em;
+  text-decoration: none;
   border-bottom: 1px solid rgba(255, 77, 158, 0.5);
   transition: gap 0.2s ease, opacity 0.15s ease, border-color 0.2s ease;
 }
@@ -147,6 +148,7 @@
 .blog-card__read-btn:hover {
   color: #fA510F;
   border-bottom-color: rgba(250, 81, 15, 0.9);
+  text-decoration: none;
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
