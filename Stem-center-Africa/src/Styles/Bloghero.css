@@ -128,16 +128,6 @@
  color: #FF4D9E;
 }
 
-.bh-cat-btn--active {
-  background: var(--bh-pink-alt);
-  border-left-color: #b5006a;
-  color: var(--bh-white);
-  box-shadow: 0 4px 18px rgba(255,77,158,0.45);
-}
-
-.bh-cat-btn--active:hover {
-  background: #ff6ab4;
-}
 
 /* arrow icon inside the button */
 .bh-cat-btn__arrow {
