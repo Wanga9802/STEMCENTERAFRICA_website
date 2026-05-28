@@ -5,6 +5,7 @@ export const BLOG_POSTS = [
     title: 'How African Youth Are Redefining the Future of Robotics',
     subtitle: 'From Nairobi to Lagos, students are building robots that solve local problems in agriculture, health, and education.',
     author: 'Dr. Nyambura Kamau',
+    authorImage: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80',
     date: 'May 22, 2026',
   
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80',
@@ -21,6 +22,7 @@ export const BLOG_POSTS = [
     title: 'CSS Grid vs Flexbox: When to Use Which (With Real Examples)',
     subtitle: 'A practical guide to choosing the right layout system for responsive pages, dashboards, and landing screens.',
     author: 'Amina Diallo',
+    authorImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80',
     date: 'May 18, 2026',
   
     image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=80',
@@ -37,6 +39,7 @@ export const BLOG_POSTS = [
     title: 'How 12-Year-Old Amara Built Her First Video Game in a Weekend',
     subtitle: 'A story of curiosity and creativity that shows how block coding can unlock young inventors.',
     author: 'James Kariuki',
+    authorImage: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80',
     date: 'May 15, 2026',
    
     image: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=1200&q=80',
@@ -53,6 +56,7 @@ export const BLOG_POSTS = [
     title: 'We Gave 20 Kids Cardboard, Wires & No Instructions — Here’s What Happened',
     subtitle: 'Open-ended making teaches problem solving, resilience, and creative experimentation.',
     author: 'Grace Mwangi',
+    authorImage: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=120&q=80',
     date: 'May 10, 2026',
    
     image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&q=80',
@@ -69,6 +73,7 @@ export const BLOG_POSTS = [
     title: 'Build a Smart Plant Watering System for Under $15',
     subtitle: 'A practical hardware project that combines sensors, code, and a real-world need.',
     author: 'Dr. Fatima Bah',
+    authorImage: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80',
     date: 'May 5, 2026',
   
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80',
@@ -85,6 +90,7 @@ export const BLOG_POSTS = [
     title: 'The One File Organisation System You’ll Actually Stick To',
     subtitle: 'A simple method for managing school work, code files, and study notes in one clean structure.',
     author: 'Amina Diallo',
+    authorImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80',
     date: 'April 30, 2026',
   
     image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1200&q=80',
@@ -101,6 +107,7 @@ export const BLOG_POSTS = [
     title: 'From Street Vendor to Software Developer: James’s Two-Year Journey',
     subtitle: 'A powerful story of ambition, grit, and the role education plays in changing a path.',
     author: 'Joy Osei',
+    authorImage: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80',
     date: 'April 25, 2026',
   
     image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&q=80',
@@ -117,6 +124,7 @@ export const BLOG_POSTS = [
     title: 'The Portfolio That Landed 3 Offers in One Month — Breakdown Inside',
     subtitle: 'What hiring managers really look for in a student portfolio, and how to build one quickly.',
     author: 'Nina Achieng',
+    authorImage: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=120&q=80',
     date: 'April 20, 2026',
    
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80',
