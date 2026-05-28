@@ -7,6 +7,7 @@ import Community from './pages/Community'
 import Blog from './pages/Blog'
 import BlogPostPage from './Components/Blog/BlogPostPage'
 import Events from './pages/Events'
+import EventDetail from './pages/EventDetail'
 import Faqs from './pages/Faqs'
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
@@ -25,6 +26,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/events/:eventId" element={<EventDetail />} />
         <Route path="/faqs" element={<Faqs />} />
         <Route path="*" element={<Home />} />
       </Routes>
