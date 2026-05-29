@@ -1,0 +1,445 @@
+/* ═══════════════════════════════════════════════════════════
+   EVENT DETAIL PAGE  –  append these rules to Events.css
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Hero ──────────────────────────────────────────────────── */
+.ed-hero {
+  background: #0f1f3d;
+  color: #fff;
+  padding: 3.5rem 0 3rem;
+  text-align: center;
+}
+
+.ed-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+/* Date badge (white card like reference image 1) */
+.ed-hero-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #0f1f3d;
+  border-radius: 10px;
+  padding: 0.55rem 1.1rem;
+  min-width: 64px;
+  font-family: 'DM Sans', sans-serif;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+  line-height: 1;
+}
+
+.ed-hero-badge-day {
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 1px;
+}
+
+.ed-hero-badge-month {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  display: block;
+}
+
+.ed-hero-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  margin: 0;
+  max-width: 720px;
+  line-height: 1.2;
+}
+
+.ed-hero-excerpt {
+  font-size: 1rem;
+  line-height: 1.75;
+  opacity: 0.85;
+  max-width: 680px;
+  margin: 0;
+}
+
+.ed-hero-meta {
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+/* Scroll chevron button */
+.ed-hero-chevron {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.ed-hero-chevron:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Body layout ───────────────────────────────────────────── */
+.ed-body {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.ed-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(260px, 340px) 1fr;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .ed-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Shared box ────────────────────────────────────────────── */
+.ed-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 32px rgba(10, 20, 40, 0.08);
+}
+
+.ed-box-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f1f3d;
+  margin: 0 0 1.1rem;
+}
+
+.ed-box-divider {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 1.25rem 0;
+}
+
+/* ── Left column ───────────────────────────────────────────── */
+.ed-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Join Us text details */
+.ed-join-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1.1rem;
+}
+
+.ed-join-daterange {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #374151;
+  margin: 0;
+}
+
+.ed-join-time {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #374151;
+  margin: 0;
+}
+
+.ed-join-location {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #374151;
+  margin: 0;
+}
+
+/* Register button */
+.ed-btn-primary {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  background: #ff2d78;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.ed-btn-primary:hover {
+  background: #e0245e;
+  transform: translateY(-1px);
+}
+
+/* Mini date card */
+.ed-mini-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f3f4f6;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.ed-mini-badge {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ff2d78;
+  color: #fff;
+  border-radius: 8px;
+  width: 48px;
+  height: 52px;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1;
+}
+
+.ed-mini-badge-day {
+  font-size: 1.15rem;
+  font-weight: 800;
+  display: block;
+}
+
+.ed-mini-badge-month {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  display: block;
+}
+
+.ed-mini-dates {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.ed-mini-dates p {
+  margin: 0;
+}
+
+.ed-mini-dash {
+  color: #9ca3af;
+}
+
+.ed-mini-time {
+  color: #0f1f3d;
+  font-weight: 600;
+}
+
+/* ── QR code box ───────────────────────────────────────────── */
+.ed-qr-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ed-qr-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.ed-qr-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.ed-qr-link-row {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ff2d78;
+  text-decoration: none;
+}
+
+.ed-qr-link-row:hover {
+  text-decoration: underline;
+}
+
+.ed-qr-image {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Divider between multiple QR codes */
+.ed-qr-block + .ed-qr-block {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.25rem;
+}
+
+/* ── Right column ──────────────────────────────────────────── */
+.ed-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Event image — top of right column */
+.ed-event-image {
+  width: 100%;
+  min-height: 280px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 8px 32px rgba(10, 20, 40, 0.1);
+}
+
+/* ── Description blocks ────────────────────────────────────── */
+.ed-description-box {
+  /* inherits .ed-box */
+}
+
+.ed-desc-paragraph {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.97rem;
+  color: #374151;
+  line-height: 1.8;
+  margin: 0 0 0.85rem;
+}
+
+.ed-desc-heading {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f1f3d;
+  margin: 1.25rem 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Highlight block (SUMMIT / EXPO style) */
+.ed-desc-highlight {
+  background: #f8f9fb;
+  border-left: 3px solid #ff2d78;
+  border-radius: 0 8px 8px 0;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.ed-desc-highlight-label {
+  font-weight: 800;
+  color: #0f1f3d;
+}
+
+.ed-desc-highlight-sub {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+/* Stats grid */
+.ed-desc-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.ed-desc-stat-item {
+  background: #f3f4f6;
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0f1f3d;
+}
+
+/* Bullet list */
+.ed-desc-list {
+  margin: 0.5rem 0;
+  padding-left: 1.35rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.7;
+}
+
+.ed-desc-list li {
+  margin-bottom: 0.25rem;
+}
+
+/* Tags row */
+.ed-desc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+}
+
+.ed-desc-tag {
+  background: #0f1f3d;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Links */
+.ed-desc-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0.75rem 0;
+}
+
+.ed-desc-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: #ff2d78;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.ed-desc-link:hover {
+  text-decoration: underline;
+}
+
+/* Hashtags */
+.ed-desc-hashtags {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #9ca3af;
+  margin: 0.5rem 0 0;
+  letter-spacing: 0.02em;
+}
